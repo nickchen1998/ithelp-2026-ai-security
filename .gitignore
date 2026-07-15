@@ -9,7 +9,6 @@
 .DS_Store
 **/.DS_Store
 
-# 蒐集的條文原文（受著作權，勿推上公開 repo）
-# 預設不追蹤 條文/ 下的 PDF，避免誤將 ISO/CNS 等受版權標準公開。
-# 若某份確定可散布（如 OWASP CC BY-SA、法律條文），可用 git add -f 個別強制加入。
-條文/*.pdf
+# 條文/ 蒐集的參考條文（本 repo 為 private，故正常追蹤）。
+# ⚠️ 提醒：ISO/CNS 等單人授權標準，即使 private repo 也屬「儲存／傳輸副本」，
+#    與其授權條款有牴觸；若日後蒐集到 ISO/CNS 正本，建議留本機、勿加入版控。
