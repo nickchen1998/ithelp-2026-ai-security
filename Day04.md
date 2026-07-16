@@ -2,7 +2,7 @@
 
 > **階段一｜為什麼要管：威脅與風險**
 
-![先破後立：提示注入攻擊與防禦](圖檔/Day04/Day04-01-attack-defend.png)
+![先破後立：提示注入攻擊與防禦](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day04/Day04-01-attack-defend.png)
 
 ## 今天我們不談理論，直接動手
 
@@ -21,7 +21,7 @@
 
 我們刻意**不用**需要付費、需要申請金鑰的雲端 AI，而是用一個叫 **Ollama** 的免費工具，把 AI 模型直接跑在你自己的電腦上。這樣做有三個好處：完全免費、資料不外流、而且你可以反覆做各種攻擊實驗也不用擔心帳單。本系列後面要搭的檢索系統，也會一路用它。
 
-![本機 AI 環境準備的四個步驟](圖檔/Day04/Day04-02-ollama-setup.png)
+![本機 AI 環境準備的四個步驟](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day04/Day04-02-ollama-setup.png)
 
 ### 步驟一：安裝 Ollama
 
@@ -162,7 +162,7 @@ def ask(user_message: str) -> str:
 
 ### 破的總結
 
-![重複上文、翻譯繞過、間接注入三招打穿未設防的客服機器人](圖檔/Day04/Day04-03-three-attacks.png)
+![重複上文、翻譯繞過、間接注入三招打穿未設防的客服機器人](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day04/Day04-03-three-attacks.png)
 
 五個案例，三招打穿。這證明了一件事：**光靠「在系統提示裡叫模型保密」，是擋不住提示注入的。** 因為攻擊者永遠有各種語意上的花招（複述、翻譯、角色扮演、藏在資料裡⋯⋯），而模型天生傾向順從語意合理的要求。你把機密交給模型保管，就等於把它放進了一個「只要話術對了就會開口」的保險箱。
 
@@ -172,7 +172,7 @@ def ask(user_message: str) -> str:
 
 我要示範兩個最基本、卻最有效的防禦觀念。它們不是完整解法（完整的輸入輸出防護留待 Day 23 深入），但足以擋下我們剛剛的攻擊，並帶出正確的防禦思維。
 
-![兩道防禦：機密不入提示，加上輸出防護網](圖檔/Day04/Day04-04-two-defenses.png)
+![兩道防禦：機密不入提示，加上輸出防護網](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day04/Day04-04-two-defenses.png)
 
 ### 防禦一【釜底抽薪】：機密根本不要放進系統提示
 
@@ -236,7 +236,7 @@ def redact_output(text: str) -> str:
 
 此處模型**仍被那句注入指令劫持了行為**——它以為自己該「列出折扣碼」，於是在不知道真碼的情況下，**憑空捏造了三個假的折扣碼**。
 
-![防住資料外洩不等於防住行為被劫持：模型仍被操控而捏造假資料](圖檔/Day04/Day04-05-leak-vs-hijack.png)
+![防住資料外洩不等於防住行為被劫持：模型仍被操控而捏造假資料](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day04/Day04-05-leak-vs-hijack.png)
 
 這個現象，一口氣串起了兩個重要觀念：
 

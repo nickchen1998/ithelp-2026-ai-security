@@ -2,7 +2,7 @@
 
 > **階段一｜為什麼要管：威脅與風險**
 
-![大型語言模型應用十大風險全景](圖檔/Day03/Day03-01-top10-overview.png)
+![大型語言模型應用十大風險全景](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day03/Day03-01-top10-overview.png)
 
 ## 昨天說「威脅很發散」，今天給你一張收斂的地圖
 
@@ -18,13 +18,15 @@
 
 當 LLM 應用爆發之後，OWASP 也組了一個專案，專門整理「LLM 應用程式的十大風險」，就是我們今天的主角——**OWASP Top 10 for LLM Applications**。它目前最新的版本是 2025 年版（文件內部標示為 v2.0）。
 
-![OWASP：公開權威的應用程式安全社群與其風險清單](圖檔/Day03/Day03-03-owasp-intro.png)
+![OWASP：公開權威的應用程式安全社群與其風險清單](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day03/Day03-03-owasp-intro.png)
 
 ### 一個小提醒：清單會改版，這正是它有價值的地方
 
 這裡有個值得一提的細節。這份清單第一版在 2023 年推出，2025 年版做了不小的調整——有些風險合併了、有些改了名字、還新增了幾條反映最新攻擊趨勢的項目（例如專門針對 AI 記憶資料庫的攻擊）。這件事本身就說明了一個道理：**AI 資安是一個「活的」領域，威脅一直在演化，清單也跟著演化。** 因此本系列全程以**最新的 2025 年版**為準；若在其他來源看到舊版的十條、其順序或名稱不盡相同，那只是版本差異。
 
-![OWASP 清單從 2023 版演進到 2025 版](圖檔/Day03/Day03-04-version-evolution.png)我在文末會附上官方連結，方便你隨時對照最新狀態。
+![OWASP 清單從 2023 版演進到 2025 版](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day03/Day03-04-version-evolution.png)
+
+本文文末附有官方連結，可隨時對照最新狀態。
 
 > 本文以下對十條風險的說明，均為筆者以自己的話改寫自 OWASP Top 10 for LLM Applications 2025（採創用 CC 姓名標示-相同方式分享 4.0 授權），並非原文翻譯；完整原文與最新版本請見文末連結。
 
@@ -110,7 +112,7 @@
 
 我們用本系列的貫穿範例——一個 RAG 客服系統——當底圖。一個請求從使用者進來、到答案送出去，會經過幾層，每一層都對應到幾條風險：
 
-![十大風險對映到 RAG 系統各層與實作天數](圖檔/Day03/Day03-02-mapping.png)
+![十大風險對映到 RAG 系統各層與實作天數](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day03/Day03-02-mapping.png)
 
 | 系統層 | 這一層會遇到的風險 | 對應本系列實作 |
 | --- | --- | --- |
@@ -136,7 +138,7 @@
 - 過度代理權 → 對應**「人類自主」**原則（保留人類監督）。
 - 而「出事要能追查」的稽核需求，則對應**「問責」**原則。
 
-![十大技術風險對映回基本法七大原則](圖檔/Day03/Day03-05-risk-to-principle.png)
+![十大技術風險對映回基本法七大原則](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day03/Day03-05-risk-to-principle.png)
 
 這就是「從法條到程式碼」最生動的一次預演：**最上層一句抽象的法律原則（「應建立資安防護措施」），中間透過 OWASP 這份技術清單具體化成「要防哪十種攻擊」，最下層再落成 RAG 系統裡一層一層的防禦程式。** 三層完全接得起來。這也是為什麼本系列要五五分地談法規與技術——它們本來就是同一件事的兩端。
 
