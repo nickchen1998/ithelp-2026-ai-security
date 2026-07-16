@@ -1,5 +1,7 @@
 # Day 01：開場——法律過了，作用法還沒到，開發者卡在最關鍵的縫隙
 
+> 📝 *本系列為 iThome 鐵人賽學習筆記，屬個人教學與非商業用途；文中法規與標準內容均以自己的話轉述並註明出處，非逐字引用。*
+
 > **階段一｜為什麼要管：威脅與風險**
 
 ![法律已通過、作用法還在路上，開發者卡在中間的縫隙](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day01/Day01-01-law-gap.png)

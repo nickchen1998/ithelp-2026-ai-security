@@ -1,5 +1,7 @@
 # Day 03：大型語言模型十大風險導讀——OWASP 清單一次盤完
 
+> 📝 *本系列為 iThome 鐵人賽學習筆記，屬個人教學與非商業用途；文中法規與標準內容均以自己的話轉述並註明出處，非逐字引用。*
+
 > **階段一｜為什麼要管：威脅與風險**
 
 ![大型語言模型應用十大風險全景](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day03/Day03-01-top10-overview.png)

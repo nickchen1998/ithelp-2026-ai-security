@@ -1,5 +1,7 @@
 # Day 09：AI 管理系統（AIMS）導論——ISO/IEC 42001 與台灣 CNS 42001
 
+> 📝 *本系列為 iThome 鐵人賽學習筆記，屬個人教學與非商業用途；文中法規與標準內容均以自己的話轉述並註明出處，非逐字引用。*
+
 > **階段二｜誰在管、用什麼管：制度與標準**
 
 ![ISO/IEC 42001 是一套 AI 管理系統標準](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day09/Day09-01-aims-overview.png)

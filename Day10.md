@@ -1,5 +1,7 @@
 # Day 10：42001 主體條款 Clause 4–10——逐條走一遍 PDCA
 
+> 📝 *本系列為 iThome 鐵人賽學習筆記，屬個人教學與非商業用途；文中法規與標準內容均以自己的話轉述並註明出處，非逐字引用。*
+
 > **階段二｜誰在管、用什麼管：制度與標準**
 
 ![42001 主體條款第 4 到 10 章，依 PDCA 排列](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day10/Day10-01-clause-overview.png)

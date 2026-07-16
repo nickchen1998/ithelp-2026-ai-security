@@ -1,5 +1,7 @@
 # Day 02：大型語言模型應用的資安，跟傳統資安差在哪？
 
+> 📝 *本系列為 iThome 鐵人賽學習筆記，屬個人教學與非商業用途；文中法規與標準內容均以自己的話轉述並註明出處，非逐字引用。*
+
 > **階段一｜為什麼要管：威脅與風險**
 
 ![傳統網頁攻擊面與大型語言模型攻擊面的對照](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day02/Day02-01-attack-surface.png)

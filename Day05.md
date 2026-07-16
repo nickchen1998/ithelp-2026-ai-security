@@ -1,5 +1,7 @@
 # Day 05：像駭客一樣連續追問——資料外洩、模型濫用，與「紅隊測試」
 
+> 📝 *本系列為 iThome 鐵人賽學習筆記，屬個人教學與非商業用途；文中法規與標準內容均以自己的話轉述並註明出處，非逐字引用。*
+
 > **階段一｜為什麼要管：威脅與風險**
 
 ![紅隊與藍隊：一攻一防](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day05/Day05-01-red-blue-team.png)

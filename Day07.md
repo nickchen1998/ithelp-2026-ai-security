@@ -1,5 +1,7 @@
 # Day 07：基本法的義務——風險分類、高風險應用與標示揭露
 
+> 📝 *本系列為 iThome 鐵人賽學習筆記，屬個人教學與非商業用途；文中法規與標準內容均以自己的話轉述並註明出處，非逐字引用。*
+
 > **階段二｜誰在管、用什麼管：制度與標準**
 
 ![以風險為基礎的管理：風險越高，義務越重](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day07/Day07-01-risk-based.png)
