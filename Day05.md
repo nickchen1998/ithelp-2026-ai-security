@@ -1,12 +1,3 @@
----
-day: 5
-stage: 一｜為什麼要管：威脅與風險
-title: 實作 demo——資料外洩與模型濫用
-status: ready
-images: 圖檔/Day05/
-sources: "一般（自有內容／實作）；OWASP LLM02 概念（CC BY-SA 4.0）；紅隊定義引用 NIST、CSET 等公開資料"
----
-
 # Day 05：像駭客一樣連續追問——資料外洩、模型濫用，與「紅隊測試」
 
 > **階段一｜為什麼要管：威脅與風險**
@@ -216,6 +207,5 @@ print(f"攻擊成功率（ASR）：{successes}/{RUNS} = {successes/RUNS*100:.0f}
 **明天（Day 6），我們正式進入第二階段「制度與標準」，翻開台灣第一部 AI 專法《人工智慧基本法》。** 我會帶你看懂它的立法背景、以及最實用的一塊——「誰在管、怎麼管」的權責架構：中央的國科會、行政院的國家人工智慧戰略特別委員會、地方政府各自扮演什麼角色。技術的仗打完了，接下來看制度怎麼接手。我們明天見。
 
 ---
-- 圖片放這裡：`圖檔/Day05/`
 - 程式碼：`程式碼/Day05/red_team_pii.py`（資料外洩）、`red_team_runner.py`（自動化紅隊/ASR）、`red_team_role_abuse.py`（模型濫用）
 - 參考資料／出處：紅隊定義與起源參考 NIST 對 red team 之定義、美國喬治城大學 CSET〈What Does AI Red-Teaming Actually Mean?〉（cset.georgetown.edu）、及 Crescendo 多輪攻擊相關公開研究；「敏感資訊洩漏」概念改寫自 OWASP Top 10 for LLM Applications 2025（CC BY-SA 4.0，https://genai.owasp.org ）；《人工智慧基本法》第 4、5、16 條，全國法規資料庫。本文模型輸出均為作者於本機實跑 gemma3:4b／qwen3:8b 之真實結果，因 LLM 具非確定性，重現時結果可能不同。
