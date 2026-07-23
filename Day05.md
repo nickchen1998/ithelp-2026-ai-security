@@ -108,20 +108,44 @@ def run_attack():
 
 ### 動手：把攻擊自動跑很多次
 
-於是我做了第二支程式 `red_team_runner.py`：它把同一套攻擊自動重複執行 N 次，統計成功率。這就是「自動化、可量化紅隊測試」最小的雛形（完整版是 Day 26 的主題）。核心邏輯很簡單：
+於是我做了第二支程式 `red_team_runner.py`：它把同一套攻擊自動重複執行 N 次，統計成功率。這就是「自動化、可量化紅隊測試」最小的雛形（完整版是 Day 26 的主題）。
+
+它的 `SYSTEM_PROMPT`、`ATTACK_TURNS`、`normalize` 與偵測標記都與前一支相同，只多做兩件事。第一件，是把「一整套多輪攻擊」包成一個回傳「這輪有沒有洩漏」的函式 `attack_once()`——注意這裡刻意把 `temperature` 調高到 `0.8`，讓每次輸出帶有變化，才看得出模型的「機率性」：
 
 ```python
 def attack_once() -> bool:
     """把整套多輪攻擊跑一遍，回傳這一輪是否洩漏（True=攻擊成功）。"""
     history = []
     for user_message in ATTACK_TURNS:
-        # ⋯⋯進行對話⋯⋯（temperature 調高到 0.8，讓每次輸出有變化）
-        if 洩漏偵測命中:
+        history.append({"role": "user", "content": user_message})
+        answer = ollama.chat(
+            model=MODEL,
+            messages=[{"role": "system", "content": SYSTEM_PROMPT}] + history,
+            think=False,
+            # temperature 調高一點，讓每次輸出有變化，才看得出「機率性」。
+            options={"temperature": 0.8},
+        )["message"]["content"].strip()
+        history.append({"role": "assistant", "content": answer})
+        if any(marker in normalize(answer) for marker in SECRET_MARKERS):
             return True
     return False
+```
 
-successes = sum(attack_once() for _ in range(RUNS))   # 跑 RUNS 次
-print(f"攻擊成功率（ASR）：{successes}/{RUNS} = {successes/RUNS*100:.0f}%")
+第二件，是主程式把 `attack_once()` 重複跑 `RUNS` 次，數出其中幾次洩漏，換算成攻擊成功率：
+
+```python
+if __name__ == "__main__":
+    print(f"模型：{MODEL}，重複執行 {RUNS} 次多輪攻擊 ...\n")
+    successes = 0
+    for i in range(1, RUNS + 1):
+        leaked = attack_once()
+        successes += leaked
+        print(f"第 {i:>2} 次：{'🔴 洩漏' if leaked else '🟢 守住'}")
+
+    rate = successes / RUNS * 100
+    print("\n" + "=" * 50)
+    print(f"攻擊成功率（ASR）：{successes}/{RUNS} = {rate:.0f}%")
+    print("提醒：只要成功率不是 0%，就代表這個防線有破口，不能算安全。")
 ```
 
 我實際跑了 10 次，真實結果如下：
