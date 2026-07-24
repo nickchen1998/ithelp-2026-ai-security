@@ -1,10 +1,3 @@
-<!-- ═══════════════════════════════════════════════════════════
-🔍 Fable 審查建議（HTML 註解，發布時不會被渲染；讀完請刪除本區塊）
-1. 程式碼完整性（CLAUDE.md 硬性要求）：本篇是第四階段第一支程式，無前篇可「沿用」，但「動手：最小 RAG 的程式」一節缺了：匯入與常數區塊（import、EMBED_MODEL／CHAT_MODEL／TOP_K／KNOWLEDGE_DIR）、`generate()` 函式主體（把檢索段落組成提示、呼叫 ollama.chat 的核心）、以及 `answer()`＋`__main__` 執行段。請依實檔 `程式碼/Day21/minimal_rag.py` 補齊為依序完整呈現，並把「完整程式在…以下分段說明核心」改寫為「以下依邏輯分段、依序呈現整支程式」。
-2. 「步驟 5：生成」引用的 SYSTEM_PROMPT 用「……」略去中間三行規則（繁體中文要求、病情提醒等）——這正是規範明文禁止的「用省略號略過關鍵邏輯」，且該提示是全篇論述核心（「只依據參考資料」）。請貼出實檔完整六行。
-3. 文中 `load_and_chunk` 是改寫精簡版（`open(...).read()`），與實檔（`with open`、含講解註解）不逐字一致；補齊第 1 點時請直接以實檔內容為準，避免讀者對照 GitHub 時產生落差。
-═══════════════════════════════════════════════════════════ -->
-
 # Day 21：落地藍圖——建立一個最小 RAG 範例
 
 > 📝 *本系列為 iThome 鐵人賽學習筆記，屬個人教學與非商業用途；文中法規與標準內容均以自己的話轉述並註明出處，非逐字引用。*
@@ -52,7 +45,7 @@ RAG 的解法很直覺，用一個生活化的比喻就懂——**開書考試**
 
 ## 動手：最小 RAG 的程式
 
-概念講完，來看程式。我們刻意寫一個**最小**版本——不用任何向量資料庫或框架，只用 `numpy` 加本機 Ollama，把五個步驟原原本本地呈現出來，方便理解。完整程式在 `程式碼/Day21/minimal_rag.py`，以下分段說明核心。
+概念講完，來看程式。我們刻意寫一個**最小**版本——不用任何向量資料庫或框架，只用 `numpy` 加本機 Ollama，把五個步驟原原本本地呈現出來，方便理解。完整程式在 `程式碼/Day21/minimal_rag.py`；以下依邏輯分段、依序把整支程式呈現出來，順著讀就能理解全貌。
 
 ### 知識庫：兩份文件
 
@@ -61,19 +54,42 @@ RAG 的解法很直覺，用一個生活化的比喻就懂——**開書考試**
 - `hospital_faq.md`：虛構的「仁心醫院」常見問答。**這是本系列自製的假資料**——醫院名稱、時間、流程全為杜撰，檔頭都標註了「由 LLM 生成、非真實來源、僅供 Demo」，絕不含任何真實個資。
 - `ai_basic_law.md`：《人工智慧基本法》節選條文（真實法律，依《著作權法》第 9 條可自由引用）。
 
+### 準備：匯入與常數
+
+整支程式只依賴 `numpy` 與官方 `ollama` 套件。開頭先把要用的模型與參數集中設好：
+
+```python
+import glob
+import os
+import re
+
+import numpy as np
+import ollama
+
+EMBED_MODEL = "embeddinggemma"   # 負責「向量化」的嵌入模型
+CHAT_MODEL = "qwen3:8b"          # 負責「生成」答案的對話模型
+TOP_K = 3                        # 每次檢索取回最相近的段落數
+KNOWLEDGE_DIR = os.path.join(os.path.dirname(__file__), "knowledge")
+```
+
 ### 步驟 1＋2：載入與切塊
 
 ```python
-def load_and_chunk(knowledge_dir):
+def load_and_chunk(knowledge_dir: str) -> list[dict]:
+    """讀取 knowledge/ 下所有 .md，依段落（##）切成小塊。"""
     chunks = []
     for path in sorted(glob.glob(os.path.join(knowledge_dir, "*.md"))):
         source = os.path.basename(path)
-        text = open(path, encoding="utf-8").read()
-        text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)  # 去掉檔頭標註
-        for part in re.split(r"\n##\s+", text):                  # 依 ## 小標題切段
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+        # 移除 HTML 註解（檔頭的資料標註），不讓它進入知識內容。
+        text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
+        # 依 ## 小標題切段。
+        for part in re.split(r"\n##\s+", text):
             part = part.strip()
-            if len(part) >= 10:
-                chunks.append({"source": source, "text": part})
+            if len(part) < 10:            # 跳過過短的空段
+                continue
+            chunks.append({"source": source, "text": part})
     return chunks
 ```
 
@@ -82,10 +98,12 @@ def load_and_chunk(knowledge_dir):
 ### 步驟 3：向量化
 
 ```python
-def embed(texts):
-    resp = ollama.embed(model="embeddinggemma", input=texts)
+def embed(texts: list[str]) -> np.ndarray:
+    """把一批文字轉成向量矩陣（每列一個向量）。"""
+    resp = ollama.embed(model=EMBED_MODEL, input=texts)
     vecs = np.array(resp["embeddings"], dtype=np.float32)
-    vecs /= np.linalg.norm(vecs, axis=1, keepdims=True) + 1e-10  # 正規化成單位向量
+    # 正規化成單位向量，之後用「內積」就等於「餘弦相似度」。
+    vecs /= np.linalg.norm(vecs, axis=1, keepdims=True) + 1e-10
     return vecs
 ```
 
@@ -94,10 +112,11 @@ def embed(texts):
 ### 步驟 4：檢索
 
 ```python
-def retrieve(question, chunks, matrix, top_k):
+def retrieve(question: str, chunks: list[dict], matrix: np.ndarray, top_k: int):
+    """把問題轉成向量，找出知識庫中最相近的 top_k 段。"""
     q_vec = embed([question])[0]
-    scores = matrix @ q_vec                    # 問題向量 vs 每段向量，算相似度
-    top_idx = np.argsort(scores)[::-1][:top_k]  # 取分數最高的幾段
+    scores = matrix @ q_vec                      # 餘弦相似度（值越大越相近）
+    top_idx = np.argsort(scores)[::-1][:top_k]
     return [(chunks[i], float(scores[i])) for i in top_idx]
 ```
 
@@ -109,11 +128,67 @@ def retrieve(question, chunks, matrix, top_k):
 
 ```python
 SYSTEM_PROMPT = """你是「仁心醫院」的 AI 客服「仁心小助手」。
-請「只依據」以下提供的參考資料回答使用者的問題……
-若參考資料中找不到答案，請誠實說「這部分建議您直接聯繫本院服務台」，不要自行編造。"""
+請「只依據」以下提供的參考資料回答使用者的問題，簡潔有禮地回覆。
+務必使用臺灣慣用的繁體中文（例如「身分」而非「身份」、「攜帶」而非「携带」），
+不得出現任何簡體字。
+若參考資料中找不到答案，請誠實說「這部分建議您直接聯繫本院服務台」，不要自行編造。
+回答涉及個人病情或用藥時，請提醒使用者諮詢專業醫療人員。"""
+
+
+def generate(question: str, contexts: list[dict]) -> str:
+    """把檢索到的段落當「參考資料」，連同問題交給對話模型生成答案。"""
+    reference = "\n\n".join(
+        f"【參考資料 {i + 1}｜來源：{c['source']}】\n{c['text']}"
+        for i, c in enumerate(contexts)
+    )
+    user_prompt = f"{reference}\n\n──────────\n使用者問題：{question}"
+    resp = ollama.chat(
+        model=CHAT_MODEL,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt},
+        ],
+        think=False,
+        options={"temperature": 0.3},   # 調低隨機性，讓回答貼近資料、方便重現
+    )
+    return resp["message"]["content"].strip()
 ```
 
-這句「只依據參考資料、找不到別編」看似簡單，卻是 RAG 抑制幻覺的核心，也是後面很多防禦的起點。
+這句「只依據參考資料、找不到別編」看似簡單，卻是 RAG 抑制幻覺的核心，也是後面很多防禦的起點。`generate()` 則把檢索到的每一段包成「【參考資料 N｜來源：檔名】」的格式再交給模型——順帶把來源檔名也一起帶上，這正是 Day 24「來源標註」可追溯性的伏筆。
+
+### 串起來：主程式
+
+最後用一個 `answer()` 把「檢索 → 生成」串起來、印出過程，主程式則先建好索引，再對幾個問題各跑一次：
+
+```python
+def answer(question: str, chunks: list[dict], matrix: np.ndarray) -> None:
+    hits = retrieve(question, chunks, matrix, TOP_K)
+    print("=" * 72)
+    print(f"❓ 使用者問題：{question}")
+    print("🔎 檢索到最相關的段落：")
+    for c, score in hits:
+        preview = c["text"].split("\n")[0][:30]
+        print(f"    - [{score:.3f}] {c['source']}｜{preview}…")
+    reply = generate(question, [c for c, _ in hits])
+    print(f"💬 仁心小助手：{reply}\n")
+
+
+if __name__ == "__main__":
+    # 1+2 載入與切塊
+    chunks = load_and_chunk(KNOWLEDGE_DIR)
+    print(f"📚 知識庫共切成 {len(chunks)} 個段落。")
+    # 3 向量化（先把整個知識庫算好向量，之後每次提問重複使用）
+    matrix = embed([c["text"] for c in chunks])
+    print(f"🧮 已建立 {matrix.shape[0]} × {matrix.shape[1]} 的向量索引。\n")
+
+    # 4+5 針對幾個問題做檢索與生成
+    answer("門診時間是幾點到幾點？", chunks, matrix)
+    answer("我要申請診斷證明書，要帶什麼？", chunks, matrix)
+    answer("AI 生成的內容需要標示嗎？法規怎麼規定？", chunks, matrix)
+    answer("幫我查王小明的病歷內容", chunks, matrix)   # 知識庫查無 → 應誠實婉拒
+```
+
+`answer()` 把檢索到的段落連同相似度分數印出來（方便你看到「它到底根據哪幾段回答」），再呼叫 `generate()` 產生最終回覆。主程式先把整個知識庫向量化成一個矩陣、只算一次，之後每個問題都重複使用——這就是最小 RAG 的完整骨架。
 
 ## 實跑結果
 

@@ -126,8 +126,10 @@ SYSTEM_PROMPT_DEFENDED = BASE_RULES + "\n" + SECURITY_RULES
 
 def build_user_prompt(question: str, contexts: list[str]) -> str:
     """把（已淨化的）參考資料與使用者輸入，包進明確的分隔標籤。"""
+    # 兩條邊界都要堵：參考資料與使用者輸入都先清掉偽造的分隔標籤，
+    # 免得被下毒的文件塞一個假 </參考資料> 就跳脫資料區塊。
     reference = "\n\n".join(
-        f"（參考資料 {i + 1}）\n{c}" for i, c in enumerate(contexts)
+        f"（參考資料 {i + 1}）\n{strip_fake_delimiters(c)}" for i, c in enumerate(contexts)
     )
     return (
         f"<參考資料>\n{reference}\n</參考資料>\n\n"
@@ -150,7 +152,12 @@ def sanitize_context(text: str) -> tuple[str, bool]:
 # ══════════════════════════════════════════════════════════════════════
 #  兩種生成方式：未設防（Day 21 原版）vs 已設防（本日新增三道防禦）
 # ══════════════════════════════════════════════════════════════════════
-NAIVE_SYSTEM_PROMPT = BASE_RULES  # 未設防：沒有安全規則、資料直接拼進提示
+# 未設防：重現 Day 21 的原版提示——沒有安全規則、沒有標籤、資料直接拼進提示。
+NAIVE_SYSTEM_PROMPT = """你是「仁心醫院」的 AI 客服「仁心小助手」。
+請「只依據」以下提供的參考資料回答使用者的問題，簡潔有禮地回覆。
+務必使用臺灣慣用的繁體中文，不得出現任何簡體字。
+若參考資料中找不到答案，請誠實說「這部分建議您直接聯繫本院服務台」，不要自行編造。
+回答涉及個人病情或用藥時，請提醒使用者諮詢專業醫療人員。"""
 
 
 def generate_naive(question: str, contexts: list[dict]) -> str:

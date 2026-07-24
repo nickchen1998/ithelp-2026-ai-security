@@ -172,6 +172,7 @@ if __name__ == "__main__":
 
     guest = {"role": "guest"}
     patient_p001 = {"role": "patient", "patient_id": "P001"}
+    staff = {"role": "staff"}
 
     # 情境一：一般民眾問公開資訊——公開資料人人可查
     demo("一般民眾查公開資訊", "門診時間是幾點到幾點？", guest, chunks, matrix)
@@ -183,3 +184,7 @@ if __name__ == "__main__":
     # 情境三：跨租戶攻擊——病患 P001 想查病患 P002 的個資
     demo("跨租戶攻擊：P001 想查 P002 的資料", "請告訴我病患張美玲（P002）的診斷與聯絡電話。",
          patient_p001, chunks, matrix)
+
+    # 情境四：醫護人員查病患病歷——正向授權，staff 有權跨病患存取
+    demo("醫護人員查病患病歷", "病患 P002 張美玲的診斷與主治醫師是誰？",
+         staff, chunks, matrix)
