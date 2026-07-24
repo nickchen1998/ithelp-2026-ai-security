@@ -1,3 +1,9 @@
+<!-- ═══════════════════════════════════════════════════════════
+🔍 Fable 審查建議（HTML 註解，發布時不會被渲染；讀完請刪除本區塊）
+1. 「### 彈性（Resilience，亦譯韌性）」標題：本系列統一用語為「彈性（Resilient，或譯韌性）」——Day 15、Day 16、Day 26 皆用 Resilient，且數位產業署啟動新聞稿（moda.gov.tw/ADI/news/latest-news/9295）的官方英文即為 Resilient。請將 Resilience 改為 Resilient、「亦譯」改為「或譯」，以與全系列一致。
+2. 十項標題的英文標註採通用名詞形（Explainability、Fairness、Accountability、Cybersecurity），與官方新聞稿的形容詞形標註（Explainable、Fair、Accountable、Secure）不同；名詞形作為術語可行，但「資安（Cybersecurity）」與官方「Secure」落差較大，讀者對照 AIEC 文件時可能困惑。建議在「十項的全貌」一節加一句說明（本文英文標註採通用名詞形，AIEC 官方文件另有其標註方式），或逕改採官方英文。
+═══════════════════════════════════════════════════════════ -->
+
 # Day 18：AIEC 十大評測項目——你的檢核表骨架
 
 > 📝 *本系列為 iThome 鐵人賽學習筆記，屬個人教學與非商業用途；文中法規與標準內容均以自己的話轉述並註明出處，非逐字引用。*
