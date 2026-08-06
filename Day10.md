@@ -21,7 +21,7 @@ Day 9 為 ISO/IEC 42001 做了導論：它是一套 AI 管理系統（AI Managem
 
 ![第 4、5 章打地基，第 6 到 10 章轉動 PDCA](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day10/Day10-02-foundation-pdca.png)
 
-以下就依這個順序走；每一章除了說明「要求你建立什麼」與「要產出的文件」，也會點出導入時最容易忽略的「常見盲點」。
+上圖把這個「先打地基、再轉循環」的關係畫了出來。以下就依這個順序走；每一章除了說明「要求你建立什麼」與「要產出的文件」，也會點出導入時最容易忽略的「常見盲點」。
 
 ## 打地基：第 4、5 章
 
@@ -79,7 +79,7 @@ Do（執行）分成兩章：第 7 章準備「資源」，第 8 章進行「實
 
 ## 一套流程，兩張證：與 ISO 27001 的整合
 
-Day 9 提過，42001 與 ISO 27001（資訊安全管理系統，Information Security Management System，以下簡稱 ISMS）共用同一套「調和結構（Harmonized Structure）」——也就是剛剛走過的第 4 到 10 章骨架。這個共通性帶來很實際的整合紅利：**風險評鑑、內部稽核、管理審查、文件控制這些流程，兩套標準幾乎共用**。
+Day 9 提過，42001 與 ISO 27001（資訊安全管理系統，Information Security Management System，以下簡稱 ISMS）共用同一套「調和結構（Harmonized Structure）」——也就是剛剛走過的第 4 到 10 章骨架。這個共通性帶來很實際的整合紅利：**風險評鑑、內部稽核、管理審查、文件控制這些流程，兩套標準幾乎共用**。如下圖所示，共用的部分可以直接整合，AI 特有的部分才需要另外建立。
 
 ![42001 與 27001 共用的條款可整合、AI 特有條款需另建](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day10/Day10-03-integration.png)
 
@@ -92,7 +92,7 @@ Day 9 提過，42001 與 ISO 27001（資訊安全管理系統，Information Secu
 
 ## 導入時該準備的文件清單
 
-把上面各章「要產出的文件」彙整起來，就是一份導入 42001 時的文件準備清單。以下整理成一份摘要，作為實務起點：
+把上面各章「要產出的文件」彙整起來，就是一份導入 42001 時的文件準備清單。下圖是這份清單的整體樣貌，逐章的摘要則列於下表，可作為實務起點：
 
 ![42001 各章要產出的登載之資訊清單](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day10/Day10-04-document-checklist.png)
 

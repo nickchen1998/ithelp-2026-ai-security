@@ -18,7 +18,7 @@
 
 ## 兩個核心觀念：最小權限與租戶隔離
 
-存取控制的背後，有兩個資安的經典觀念，先用白話講清楚。
+存取控制的背後，有兩個資安的經典觀念，如下圖所示，以下先用白話講清楚。
 
 ![最小權限與租戶隔離](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day25/Day25-02-two-concepts.png)
 
@@ -36,7 +36,7 @@
 
 ![靠模型自律 vs 靠檢索層過濾](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day25/Day25-03-where-to-gate.png)
 
-第一種做法極度危險——它等於把所有人的病歷都攤在模型面前，只靠一句提示攔著。而我們從 Day 4 到 Day 23 已經看過太多次：**模型的「自律」是可以被話術繞過的**。攻擊者只要用對了提示注入的花招，這道防線隨時會破。
+兩種做法的差別如上圖所示。第一種做法極度危險——它等於把所有人的病歷都攤在模型面前，只靠一句提示攔著。而我們從 Day 4 到 Day 23 已經看過太多次：**模型的「自律」是可以被話術繞過的**。攻擊者只要用對了提示注入的花招，這道防線隨時會破。
 
 第二種做法才是正解：**未授權的資料，一開始就不進入模型的視野。** 模型連看都沒看到張美玲的病歷，任你再高明的話術，也套不出一份它根本沒拿到的資料。這就是「把該保護的資料，讓它連碰都碰不到」——比 Day 24 的出口過濾更前面、更徹底的一道防線。
 
@@ -142,7 +142,7 @@ def retrieve_guarded(question, chunks, matrix, top_k, user):
 
 ## 三個情境的實跑結果
 
-把程式跑起來（本機 Ollama、`qwen3:8b`、真實輸出），看存取控制如何作用：
+把程式跑起來（本機 Ollama、`qwen3:8b`、真實輸出），三個情境的對照如下圖所示，以下逐一檢視存取控制如何作用：
 
 ![三個情境的實跑對照](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day25/Day25-04-three-scenarios.png)
 
@@ -185,7 +185,7 @@ def retrieve_guarded(question, chunks, matrix, top_k, user):
 
 ## 對映：從法條到這段程式
 
-把今天的存取控制，接回貫穿本系列的對映總表（Day 21）：
+把今天的存取控制，接回貫穿本系列的對映總表（Day 21）。下圖是這組對映的整體示意，逐項對應則列於下表：
 
 ![存取控制對映法規、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day25/Day25-05-mapping.png)
 

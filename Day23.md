@@ -16,7 +16,7 @@
 
 ## 三條信任邊界：不是所有輸入都可信
 
-先建立一個關鍵觀念。餵給模型的三份內容，可信程度天差地別：
+先建立一個關鍵觀念。餵給模型的三份內容，可信程度天差地別，如下圖所示：
 
 ![系統提示、檢索資料、使用者輸入的三層信任](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day23/Day23-02-three-sources.png)
 
@@ -30,7 +30,7 @@
 
 ## 兩種注入：直接與間接
 
-順著這三條邊界，提示注入分成兩種，輸入層都要防：
+順著這三條邊界，提示注入分成如下圖所示的兩種，輸入層都要防：
 
 ![直接注入與間接注入的差別](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day23/Day23-03-two-injections.png)
 
@@ -47,7 +47,7 @@
 
 這是一句典型的**釣魚式間接注入**——它想讓客服在每個回答後面，替攻擊者夾帶一句騙病患交出卡號的釣魚訊息。
 
-用 Day 21 那個「沒有任何輸入防禦」的版本實跑，兩種攻擊的結果如下（本機 Ollama、`qwen3:8b`、真實輸出）：
+用 Day 21 那個「沒有任何輸入防禦」的版本實跑，兩種攻擊全部打穿，如下圖所示；詳細結果如下（本機 Ollama、`qwen3:8b`、真實輸出）：
 
 ![未設防被兩種注入打穿](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day23/Day23-04-attack-success.png)
 
@@ -237,7 +237,7 @@ if __name__ == "__main__":
 
 ## 設防後：同樣兩發子彈，全部擋下
 
-把三道防禦掛上去，用**完全相同的兩個攻擊**再跑一次：
+把三道防禦掛上去，用**完全相同的兩個攻擊**再跑一次，這次兩種注入都被擋下，如下圖所示：
 
 ![已設防擋下兩種注入](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day23/Day23-05-defended.png)
 
@@ -258,7 +258,7 @@ if __name__ == "__main__":
 
 ## 對映：從法條到這段程式
 
-把今天的輸入層防禦，接回貫穿本系列的對映總表（Day 21）：
+把今天的輸入層防禦，接回貫穿本系列的對映總表（Day 21）。下圖是這組對映的整體示意，逐項對應則列於下表：
 
 ![輸入層防禦對映法規、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day23/Day23-06-mapping.png)
 

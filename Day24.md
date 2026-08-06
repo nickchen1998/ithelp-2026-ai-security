@@ -22,7 +22,7 @@
 
 有讀者可能會問：資料層已經把個資治理掉、輸入層也擋住了注入，出口這關是不是多餘？
 
-恰恰相反。這正是 Day 23 談過的**縱深防禦（Defense in Depth）**精神——**不能假設前面每一道防線都滴水不漏。** 資料治理可能有漏網的個資、輸入過濾的樣式庫可能被新的變化球繞過、模型本身也可能因為幻覺而生出錯誤內容。輸出層就是這條防線的**最後一哩**：假設前面全都失守了，出口這關能不能兜底攔下來？
+恰恰相反。這正是 Day 23 談過的**縱深防禦（Defense in Depth）**精神——**不能假設前面每一道防線都滴水不漏。** 資料治理可能有漏網的個資、輸入過濾的樣式庫可能被新的變化球繞過、模型本身也可能因為幻覺而生出錯誤內容。輸出層就是這條防線的**最後一哩**：假設前面全都失守了，出口這關能不能兜底攔下來？如下圖所示，資料、輸入、輸出三層防線依序排開，輸出層站在最後一個位置。
 
 ![資料、輸入、輸出三層防線，出口是最後一道](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day24/Day24-02-defense-in-depth.png)
 
@@ -141,13 +141,13 @@ if __name__ == "__main__":
          "家醫科的聯絡窗口是誰？電話幾號？", chunks, matrix)
 ```
 
-其中 `demo()` 是負責檢索、分別呼叫 `answer_naive` 與 `answer_guarded`、並排印出對照的輔助函式（完整程式在 `output_guard_rag.py`）。三個情境的實際輸出如下。
+其中 `demo()` 是負責檢索、分別呼叫 `answer_naive` 與 `answer_guarded`、並排印出對照的輔助函式（完整程式在 `output_guard_rag.py`）。已設防管線的三道關卡與它們的先後順序如下圖所示，三個情境的實際輸出則接在其後。
 
 ![已設防管線的三道關卡與其順序](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day24/Day24-05-pipeline-order.png)
 
 ## 三個情境的實跑結果
 
-把程式跑起來（本機 Ollama、`qwen3:8b`、真實輸出），看三道防禦各自如何作用：
+把程式跑起來（本機 Ollama、`qwen3:8b`、真實輸出），三個情境的對照如下圖所示，以下逐一檢視三道防禦各自如何作用：
 
 ![三個情境的實跑對照](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day24/Day24-03-three-scenarios.png)
 
@@ -187,7 +187,7 @@ if __name__ == "__main__":
 
 ## 對映：從法條到這段程式
 
-把今天的輸出層防禦，接回貫穿本系列的對映總表（Day 21）：
+把今天的輸出層防禦，接回貫穿本系列的對映總表（Day 21）。下圖是這組對映的整體示意，逐項對應則列於下表：
 
 ![輸出層防禦對映法規、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day24/Day24-04-mapping.png)
 

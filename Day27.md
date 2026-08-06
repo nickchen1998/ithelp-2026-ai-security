@@ -18,7 +18,7 @@
 
 ## 設計稽核日誌的三個問題
 
-設計一套稽核日誌，要回答三個問題：**記什麼、留多久、怎麼防竄改。** 我們一個一個看。
+設計一套稽核日誌，要回答如下圖所示的三個問題：**記什麼、留多久、怎麼防竄改。** 以下一個一個看。
 
 ![稽核日誌設計的三個核心問題](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day27/Day27-02-three-questions.png)
 
@@ -50,7 +50,7 @@
 
 ![雜湊鏈：竄改一筆，後面全部斷鏈](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day27/Day27-03-hash-chain.png)
 
-程式的核心，就是這個「算指紋」的函式：
+上圖把這條鎖鏈畫了出來：竄改其中一筆，後面就會整串斷鏈。程式的核心，就是這個「算指紋」的函式：
 
 ```python
 import hashlib
@@ -127,7 +127,7 @@ def make_entry(user, question, reply, events, hits, ts):
 
 ## 實跑：一筆真實的稽核紀錄長什麼樣
 
-把稽核日誌接進防禦 RAG，處理三個請求（一般查詢、跨租戶攻擊、注入攻擊）。我們把第二筆——病患 P001 想查病患 P002 資料的那次跨租戶攻擊——完整印出來看：
+把稽核日誌接進防禦 RAG，處理三個請求（一般查詢、跨租戶攻擊、注入攻擊）。一筆稽核紀錄的結構如下圖所示；以下把第二筆——病患 P001 想查病患 P002 資料的那次跨租戶攻擊——完整印出來看：
 
 ![一筆稽核紀錄的結構](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day27/Day27-04-log-entry.png)
 
@@ -163,7 +163,7 @@ log.records[1]["entry"]["defenses"] = ["none"]
 ok, bad = log.verify()
 ```
 
-實際執行結果（本機真實輸出）：
+竄改前後的驗證結果如下圖所示，實際執行輸出如下（本機真實輸出）：
 
 ![竄改前後的驗證結果](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day27/Day27-05-tamper-detect.png)
 
@@ -183,7 +183,7 @@ ok, bad = log.verify()
 
 ## 對映：從法條到這段程式
 
-把稽核日誌接回貫穿本系列的對映總表（Day 21）：
+把稽核日誌接回貫穿本系列的對映總表（Day 21）。下圖是這組對映的整體示意，逐項對應則列於下表：
 
 ![稽核日誌對映法規、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day27/Day27-06-mapping.png)
 

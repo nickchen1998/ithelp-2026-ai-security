@@ -22,7 +22,7 @@
 
 **檢索增強生成（Retrieval-Augmented Generation，以下簡稱 RAG）**，顧名思義是「用檢索來增強生成」。它要解決一個 LLM 的根本問題：**模型只會它訓練時看過的東西，不知道你自己的、私有的、最新的資料。** 你問一個通用模型「仁心醫院門診幾點開始」，它不可能知道，只能憑空杜撰（這就是幻覺，Day 24 詳談）。
 
-RAG 的解法很直覺，用一個生活化的比喻就懂——**開書考試**：
+RAG 的解法很直覺，用一個生活化的比喻就懂——**開書考試**，兩者的差別如下圖所示：
 
 ![純模型憑記憶作答 vs RAG 先查資料再回答](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day21/Day21-02-openbook.png)
 
@@ -192,7 +192,7 @@ if __name__ == "__main__":
 
 ## 實跑結果
 
-把程式跑起來（`python minimal_rag.py`），知識庫被切成 13 段、建好向量索引後，來看它怎麼回答四個問題：
+把程式跑起來（`python minimal_rag.py`），知識庫被切成 13 段、建好向量索引後，實跑結果如下圖所示，以下逐一檢視它怎麼回答四個問題：
 
 ![最小 RAG 的實際執行結果](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day21/Day21-03-run-result.png)
 
@@ -219,7 +219,7 @@ if __name__ == "__main__":
 
 ## 落地藍圖：五層架構與後九天的地圖
 
-有了這個最小 RAG，就能畫出第四階段要逐層攻克的**架構圖**。一個 RAG 系統的資安，可以沿著資料的流動，拆成五層：
+有了這個最小 RAG，就能畫出第四階段要逐層攻克的**架構圖**。如下圖所示，一個 RAG 系統的資安可以沿著資料的流動拆成五層：
 
 ![RAG 系統的五層防禦架構](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day21/Day21-04-five-layers.png)
 
@@ -229,7 +229,7 @@ if __name__ == "__main__":
 - **存取控制**：這個使用者，能不能看到這筆資料？（權限、租戶隔離）
 - **稽核層**：出事的時候，能不能還原軌跡？（日誌、可追溯）
 
-把這五層、對應的技術控制、法規原則與 AIEC 十大評測項目串起來，就是貫穿本系列後半的**對映總表**——這張表，正是「從法條到程式碼」最具體的樣貌：
+把這五層、對應的技術控制、法規原則與 AIEC 十大評測項目串起來，就是貫穿本系列後半的**對映總表**。下圖是這張總表的整體示意，完整內容則列於下表——它正是「從法條到程式碼」最具體的樣貌：
 
 ![法規原則、技術控制與評測項目的對映總表](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day21/Day21-05-mapping-blueprint.png)
 

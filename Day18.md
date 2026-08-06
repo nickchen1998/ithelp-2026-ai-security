@@ -16,7 +16,7 @@
 
 ## 十項的全貌：先分成三群來記
 
-十項一次背下來不容易，本文把它們依「要回答的問題」歸納成三群，方便建立整體印象（這個分群是筆者為了好懂所做的整理，官方十項本身並列、不分群）。另就英文標註先說明一點：本文各項括號內的英文，除「彈性」沿用官方新聞稿的 Resilient 外，採國際文獻常見的名詞形（如 Explainability、Fairness、Accountability、Cybersecurity），便於讀者延伸查閱；AIEC 官方文件的英文標註則多採形容詞形（如 Explainable、Fair、Accountable、Secure），兩者指的是同一個項目，對照官方文件時毋須困惑。
+十項一次背下來不容易，本文把它們依「要回答的問題」歸納成三群，方便建立整體印象，如下圖所示，各群包含哪些項目則列於下表（這個分群是筆者為了好懂所做的整理，官方十項本身並列、不分群）。另就英文標註先說明一點：本文各項括號內的英文，除「彈性」沿用官方新聞稿的 Resilient 外，採國際文獻常見的名詞形（如 Explainability、Fairness、Accountability、Cybersecurity），便於讀者延伸查閱；AIEC 官方文件的英文標註則多採形容詞形（如 Explainable、Fair、Accountable、Secure），兩者指的是同一個項目，對照官方文件時毋須困惑。
 
 ![十大評測項目分成效能、安全、治理三群](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day18/Day18-02-three-groups.png)
 
@@ -96,7 +96,7 @@
 
 ## 為什麼這十項可以當「檢核表骨架」
 
-把十項看完，會發現一件事：**它們幾乎完整覆蓋了前兩階段講過的所有治理原則。**
+把十項看完，會發現一件事——如下圖所示，**它們幾乎完整覆蓋了前兩階段講過的所有治理原則。**
 
 ![十大評測項目呼應基本法與國際框架](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day18/Day18-03-echo-principles.png)
 
@@ -109,7 +109,7 @@
 
 ## 對映到第四階段：十項如何變成程式與紀錄
 
-這十項不會停在「檢查清單」。本系列第四階段（Day 21–30）的核心工作，就是把每一項落成**可執行的技術控制與可稽核的證據**。先給出這張對映總表，作為後半段的路線圖：
+這十項不會停在「檢查清單」。本系列第四階段（Day 21–30）的核心工作，就是把每一項落成**可執行的技術控制與可稽核的證據**。先給出這張對映總表，作為後半段的路線圖——下圖是它的整體示意，逐項落點則列於下表：
 
 ![十大評測項目對映到第四階段技術落地](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day18/Day18-04-mapping-stage4.png)
 

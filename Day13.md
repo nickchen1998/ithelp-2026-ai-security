@@ -16,7 +16,7 @@
 
 ## 關鍵樞紐：適用性聲明（SoA）
 
-整個導入過程裡，有一份文件是所有稽核員一定會先要的、也是最能代表「你到底打算怎麼治理 AI」的——**適用性聲明（Statement of Applicability，以下簡稱 SoA）**。
+整個導入過程裡，有一份文件是所有稽核員一定會先要的、也是最能代表「你到底打算怎麼治理 AI」的——**適用性聲明（Statement of Applicability，以下簡稱 SoA）**。如下圖所示，它是連接風險評鑑與控制措施的樞紐。
 
 ![SoA：連接風險評鑑與控制的樞紐文件](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day13/Day13-02-soa.png)
 
@@ -39,7 +39,7 @@
 
 ## 從導入到取得證書的完整流程
 
-有了 SoA 這個核心，來看整條路怎麼走。以下是一個典型的導入到驗證流程，用白話拆成幾個階段：
+有了 SoA 這個核心，來看整條路怎麼走。一個典型的導入到驗證流程如下圖所示，用白話拆成幾個階段：
 
 ![從差距分析到取得證書的導入流程](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day13/Day13-03-process.png)
 
@@ -56,7 +56,7 @@
 
 ## 第一階段稽核 vs 第二階段稽核
 
-外部的第三方稽核，標準做法是分成兩個階段，很多人會搞混，這裡講清楚：
+外部的第三方稽核，標準做法是分成兩個階段，很多人會搞混，這裡講清楚。兩階段的分工如下圖所示：
 
 ![第一階段看文件準備，第二階段看實際落實](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day13/Day13-04-stage1-stage2.png)
 
@@ -67,7 +67,7 @@
 
 ## 驗證 vs 認證：一個常被混淆的層級
 
-最後釐清一組最容易混淆的詞——**「驗證」與「認證」不是同義詞，它們是不同層級的東西**。搞懂這個，你才會知道「一張證書為什麼可信」。
+最後釐清一組最容易混淆的詞——**「驗證」與「認證」不是同義詞，它們是不同層級的東西**。搞懂這個，才會知道「一張證書為什麼可信」。三者的層級關係如下圖所示。
 
 ![認證機構認證驗證機構、驗證機構驗證你的組織](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day13/Day13-05-cert-vs-accred.png)
 

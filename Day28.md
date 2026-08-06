@@ -16,7 +16,7 @@
 
 ## AI 供應鏈的四類來源
 
-一個典型的 AI 系統，會從四個地方引入「別人的東西」，每一類都有它的風險：
+一個典型的 AI 系統，會從如下圖所示的四個地方引入「別人的東西」，每一類都有它的風險：
 
 ![AI 供應鏈的四類來源與風險](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-02-four-sources.png)
 
@@ -29,7 +29,7 @@
 
 ## 治理的核心：盤點，然後釘選與驗證
 
-供應鏈聽起來很嚇人，但治理它的核心動作其實很樸實，就兩步：**先盤點，再釘選與驗證。**
+供應鏈聽起來很嚇人，但治理它的核心動作其實很樸實，就兩步：**先盤點，再釘選與驗證。** 這條路徑如下圖所示，展開來是盤點、釘選、驗證三個動作。
 
 ![盤點、釘選、驗證三步驟](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-03-pin-verify.png)
 
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     print_results("被掉包的環境", verify(tampered, TRUSTED_MANIFEST))
 ```
 
-其中 `print_results()` 負責把驗證結果逐項印出並回報整體是否相符（完整程式在 `ai_bom.py`）；情境二用 `deadbeef` 開頭覆蓋掉 `qwen3:8b` 的 digest，模擬「模型被換成同名下毒版、內容一改指紋就變」。實際執行輸出如下：
+其中 `print_results()` 負責把驗證結果逐項印出並回報整體是否相符（完整程式在 `ai_bom.py`）；情境二用 `deadbeef` 開頭覆蓋掉 `qwen3:8b` 的 digest，模擬「模型被換成同名下毒版、內容一改指紋就變」。兩個情境的對照如下圖所示，實際執行輸出如下：
 
 ![正常環境驗證通過 vs 掉包被抓出](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-04-verify-result.png)
 
@@ -182,7 +182,7 @@ if __name__ == "__main__":
 
 ## 模型與相依套件的治理清單
 
-把上面的原理，整理成一份可以直接照著做的治理清單——這也是本系列白皮書「供應鏈」欄位的雛形：
+把上面的原理，整理成一份可以直接照著做的治理清單——這也是本系列白皮書「供應鏈」欄位的雛形。下圖是四類供應鏈的全貌，各類對應的治理動作則列於下表：
 
 ![四類供應鏈的治理清單](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-05-checklist.png)
 
@@ -197,7 +197,7 @@ if __name__ == "__main__":
 
 ## 對映：從法條到這段程式
 
-把供應鏈治理接回貫穿本系列的對映總表（Day 21）：
+把供應鏈治理接回貫穿本系列的對映總表（Day 21）。下圖是這組對映的整體示意，逐項對應則列於下表：
 
 ![供應鏈治理對映法規、標準與 OWASP](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-06-mapping.png)
 

@@ -35,7 +35,7 @@ Day 6 把《人工智慧基本法》的權責架構立了起來——誰是主�
 
 ## 義務二：高風險應用的認定與義務
 
-在整個風險光譜中，基本法特別點出了一個需要更嚴格對待的類別——**高風險應用**。
+在整個風險光譜中，基本法特別點出了一個需要更嚴格對待的類別——**高風險應用**。它從認定到義務的整條流程如下圖所示，以下逐段拆解。
 
 ![高風險應用的認定與義務流程](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day07/Day07-02-high-risk.png)
 
@@ -78,7 +78,7 @@ Day 6 把《人工智慧基本法》的權責架構立了起來——誰是主�
 
 ### 這對產品設計意味著什麼
 
-把這些義務翻成使用者體驗（User Experience，以下簡稱 UX）語言，會長出幾個具體的設計要求：
+把這些義務翻成使用者體驗（User Experience，以下簡稱 UX）語言，會長出幾個具體的設計要求。如下圖所示，它們最後都落在使用者看得到的介面上：
 
 ![透明與標示義務對產品介面的影響](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day07/Day07-03-disclosure-ux.png)
 
@@ -91,7 +91,7 @@ Day 6 把《人工智慧基本法》的權責架構立了起來——誰是主�
 
 ## 台灣與歐盟：先埋一條國際對接的線
 
-今天多次提到「與國際接軌」。這裡先做一個對照的預告，Day 14 會完整展開。
+今天多次提到「與國際接軌」。這裡先做一個對照的預告，Day 14 會完整展開；台灣與歐盟兩種取向的差別，可先參照下圖。
 
 ![台灣的風險為基礎管理 vs 歐盟的四級風險分級](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day07/Day07-04-tw-eu.png)
 
@@ -101,7 +101,7 @@ Day 6 把《人工智慧基本法》的權責架構立了起來——誰是主�
 
 ## 對映到技術控制與 RAG 範例
 
-今天的制度義務，如何落到本系列的 RAG 客服範例上？整理成一條可執行的鏈路：
+今天的制度義務，如何落到本系列的 RAG 客服範例上？整理成一條可執行的鏈路，如下圖所示，逐項說明如下：
 
 ![基本法義務對映到 RAG 技術控制](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day07/Day07-05-obligation-to-code.png)
 

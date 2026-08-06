@@ -30,7 +30,7 @@
 
 ## 地圖的三層結構
 
-先給出本文的核心框架。台灣的 AI 治理制度，可以整理成三層：
+先給出本文的核心框架。台灣的 AI 治理制度，可以整理成三層，如下表所示：
 
 | 層次 | 回答的問題 | 主要角色 |
 | --- | --- | --- |
@@ -42,7 +42,7 @@
 
 ## 第一層：法律權責——基本法定下的分工
 
-這一層在 Day 6 已經完整鋪過，這裡快速複習並補上「地圖視角」。依基本法（2026 年 1 月 14 日公布施行）：
+這一層在 Day 6 已經完整鋪過，這裡快速複習並補上「地圖視角」。依基本法（2026 年 1 月 14 日公布施行），四個角色的分工如下圖所示：
 
 ![基本法權責架構的四個角色](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day15/Day15-02-legal-layer.png)
 
@@ -70,7 +70,7 @@
 
 ![數位部與數產署在評測體系中的角色](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day15/Day15-03-moda-adi.png)
 
-具體的動作，就是第三層的主角——AI 評測中心的設立。
+數位部與數產署在評測體系中的角色如上圖所示；而具體的動作，就是第三層的主角——AI 評測中心的設立。
 
 ## 第三層：評測驗證體系——AIEC、實驗室、驗證機構與 TAF
 
@@ -82,7 +82,7 @@ AIEC 參考美國國家標準暨技術研究院（National Institute of Standard
 
 ### 測試與驗證：一個中心、兩個分工
 
-AIEC 不是單一機構，它下轄兩個分工明確的單位，分別由兩個法人承接：
+AIEC 不是單一機構，它下轄兩個分工明確的單位，分別由兩個法人承接，如下圖所示：
 
 ![AIEC 下轄測試實驗室與驗證機構的分工](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day15/Day15-04-aiec-structure.png)
 
@@ -120,7 +120,7 @@ AIEC 不是單一機構，它下轄兩個分工明確的單位，分別由兩個
 
 ## 後面五天的導覽路線
 
-最後，把第三階段的路線圖放上來，後面五天就照這張地圖走：
+最後，把第三階段的路線圖放上來，後面五天就照這張地圖走。下圖是路線的整體示意，各天主題與其在地圖上的位置則列於下表：
 
 ![第三階段 Day 16 到 Day 20 的導覽路線](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day15/Day15-05-roadmap.png)
 

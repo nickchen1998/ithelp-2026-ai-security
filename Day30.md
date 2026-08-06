@@ -16,7 +16,7 @@
 
 ## 回望：四個階段，一條貫穿的路
 
-這三十天，沿著「從法條到程式碼」的方向，走過了四個階段：
+這三十天，沿著「從法條到程式碼」的方向，走過了如下圖所示的四個階段：
 
 ![四階段的貫穿路徑](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day30/Day30-02-four-stages.png)
 
@@ -29,7 +29,7 @@
 
 ## 一以貫之的幾條紀律
 
-如果要把三十天濃縮成幾條最重要的原則——那些不管做哪一層、都反覆出現的「紀律」——會是這幾條：
+如果要把三十天濃縮成幾條最重要的原則——那些不管做哪一層、都反覆出現的「紀律」——會是如下圖所示的五條：
 
 ![貫穿全系列的五條紀律](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day30/Day30-03-principles.png)
 
@@ -97,7 +97,7 @@ def build() -> str:
 
 ## 實跑：一份白皮書就這樣長出來
 
-把工具跑起來（`python build_whitepaper.py`），終端印出合成摘要：
+把工具跑起來（`python build_whitepaper.py`），合成結果如下圖所示，終端印出的摘要如下：
 
 ![白皮書合成的實際輸出](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day30/Day30-04-whitepaper.png)
 
@@ -116,7 +116,7 @@ def build() -> str:
 
 ## 這份資產，可以怎麼再利用？
 
-這份白皮書與檢核表，不是鐵人賽結束就作廢的作業，它是一份能落到真實場景的資產：
+這份白皮書與檢核表，不是鐵人賽結束就作廢的作業，它是一份能落到真實場景的資產。如下圖所示，它有兩個再利用場景：
 
 ![白皮書的兩個再利用場景](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day30/Day30-05-reuse.png)
 

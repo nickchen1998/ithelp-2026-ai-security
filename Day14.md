@@ -24,7 +24,7 @@
 
 ### 核心設計：四級風險分類
 
-EU AI Act 的骨架，是把所有 AI 應用依風險分成四級，風險越高、管得越嚴。這也是 Day 7 埋過的伏筆，今天完整展開：
+EU AI Act 的骨架，是把所有 AI 應用依風險分成四級，風險越高、管得越嚴。這也是 Day 7 埋過的伏筆，今天完整展開。四個等級如下圖所示，由上而下依序說明：
 
 ![歐盟 AI 法的四級風險分類](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day14/Day14-02-eu-tiers.png)
 
@@ -35,7 +35,7 @@ EU AI Act 的骨架，是把所有 AI 應用依風險分成四級，風險越高
 
 ### 高風險應用要負哪些義務
 
-被歸為「高風險」的 AI，要承擔一整套義務。這份清單特別值得工程師記住，因為**它幾乎就是一份「AI 系統該做好哪些事」的檢查表**：
+被歸為「高風險」的 AI，要承擔一整套義務。這份清單特別值得工程師記住，因為**它幾乎就是一份「AI 系統該做好哪些事」的檢查表**。主要義務如下圖所示，逐項列出如下：
 
 ![歐盟高風險 AI 的主要義務](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day14/Day14-03-high-risk-obligations.png)
 
@@ -65,7 +65,7 @@ EU AI Act 還特別針對**通用型 AI 模型（General-Purpose AI Model，以�
 
 ### 核心：四個功能
 
-NIST AI RMF 的核心（Core）是四個互相配合的功能，這四個功能會讓你想起 42001 的 PDCA——因為它們同樣是一種「持續循環的治理」：
+NIST AI RMF 的核心（Core）是四個互相配合的功能，這四個功能會讓人想起 42001 的 PDCA——因為它們同樣是一種「持續循環的治理」。四者的關係如下圖所示：
 
 ![NIST AI RMF 的四個功能](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day14/Day14-04-nist-functions.png)
 
@@ -78,7 +78,7 @@ NIST 還定義了「可信任 AI」的七項特性：有效可靠、安全、資
 
 ## 三套框架，一張對照表
 
-把台灣、歐盟、美國三邊放在一起，差異與共通就一目了然：
+把台灣、歐盟、美國三邊放在一起，差異與共通就一目了然。下圖是三種治理取向的整體對照，逐項比較則列於下表：
 
 ![台灣、歐盟、美國三套 AI 治理取向對照](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day14/Day14-05-three-compare.png)
 
@@ -94,7 +94,7 @@ NIST 還定義了「可信任 AI」的七項特性：有效可靠、安全、資
 
 ## 42001 當共通語言：一次導入，三方對應
 
-這就是 ISO/IEC 42001 在國際上最大的戰略價值——它是一套**中立、國際通用的管理系統**，可以當作對接各國要求的「翻譯層」。
+這就是 ISO/IEC 42001 在國際上最大的戰略價值——它是一套**中立、國際通用的管理系統**，可以當作對接各國要求的「翻譯層」，如下圖所示：導入一次，同時對應到歐盟的高風險義務與 NIST 的四項功能。
 
 ![導入一次 42001，同時對應歐盟義務與 NIST 功能](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day14/Day14-06-42001-bridge.png)
 

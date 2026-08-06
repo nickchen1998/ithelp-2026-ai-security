@@ -18,7 +18,7 @@
 
 我們準備了一份（自製的、完全虛構的）病患資料，含姓名、病歷號、身分證字號、出生年月日、電話、診斷與用藥——這是醫院系統裡最敏感的個人可識別資訊（Personally Identifiable Information，以下簡稱 PII）。**這份假資料由大型語言模型（Large Language Model，以下簡稱 LLM）生成，檔頭清楚標註了「非真實來源、僅供 Demo」，所有身分證與電話都是格式正確但杜撰的假值。** 我們刻意保留完整個資，正是要示範「未治理」有多危險。
 
-把這份原始資料直接當知識庫，問一個聽起來很合理的問題，實跑結果如下：
+把這份原始資料直接當知識庫，問一個聽起來很合理的問題。下圖是未治理與已治理兩種情境的外洩對比，實跑結果如下：
 
 ![未治理與已治理的外洩對比](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day22/Day22-02-leak-vs-safe.png)
 
@@ -32,7 +32,7 @@
 
 ## 資料治理三件事
 
-那要怎麼處理？資料在進入 RAG 知識庫之前，應該先經過「治理」。核心是三件事：
+那要怎麼處理？資料在進入 RAG 知識庫之前，應該先經過「治理」。核心是如下圖所示的三件事：
 
 ![資料治理的三個步驟](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day22/Day22-03-three-steps.png)
 
@@ -132,7 +132,7 @@ def run(title, doc_text, question):
 
 ## 對映：從法條到這段程式
 
-把今天的實作接回治理框架，這段程式碼同時回應了法規、標準與 AI 產品與系統評測中心（Artificial Intelligence Evaluation Center，以下簡稱 AIEC）評測三個層次的要求：
+把今天的實作接回治理框架，這段程式碼同時回應了法規、標準與 AI 產品與系統評測中心（Artificial Intelligence Evaluation Center，以下簡稱 AIEC）評測三個層次的要求。下圖是這組對映的整體示意，逐項對應則列於下表：
 
 ![資料治理對映法規原則、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day22/Day22-04-mapping.png)
 
