@@ -258,13 +258,11 @@ if __name__ == "__main__":
 
 ## 對映：從法條到這段程式
 
-把今天的輸入層防禦，接回貫穿本系列的對映總表（Day 21）。下圖是這組對映的整體示意，逐項對應則列於下表：
+把今天的輸入層防禦，接回貫穿本系列的對映總表（Day 21）。下圖呈現這組對映：
 
 ![輸入層防禦對映法規、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day23/Day23-06-mapping.png)
 
-![對映：從法條到這段程式（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day23/Day23-07-table-01.png)
-
-這張表就是「從法條到程式碼」在輸入層的具體樣貌：**一句抽象的「資安與安全：防範攻擊、確保穩健」原則，最後落成了 `scan_injection()`、`build_user_prompt()`、`sanitize_context()` 這幾個函式，以及一份劃清了信任邊界的提示。** 而「已設防擋下注入」的實跑結果，將來就是送 AIEC「資安」「安全性」評測時，拿得出手的技術證據。
+這組對映就是「從法條到程式碼」在輸入層的具體樣貌：**一句抽象的「資安與安全：防範攻擊、確保穩健」原則，最後落成了 `scan_injection()`、`build_user_prompt()`、`sanitize_context()` 這幾個函式，以及一份劃清了信任邊界的提示。** 而「已設防擋下注入」的實跑結果，將來就是送 AIEC「資安」「安全性」評測時，拿得出手的技術證據。
 
 ## 誠實的限制：這不是萬靈丹
 

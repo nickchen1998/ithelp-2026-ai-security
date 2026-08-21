@@ -182,21 +182,17 @@ if __name__ == "__main__":
 
 ## 模型與相依套件的治理清單
 
-把上面的原理，整理成一份可以直接照著做的治理清單——這也是本系列白皮書「供應鏈」欄位的雛形。下圖是四類供應鏈的全貌，各類對應的治理動作則列於下表：
+把上面的原理，整理成一份可以直接照著做的治理清單——這也是本系列白皮書「供應鏈」欄位的雛形。下圖整理了四類供應鏈與主要治理動作：
 
 ![四類供應鏈的治理清單](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-05-checklist.png)
-
-![模型與相依套件的治理清單（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-07-table-01.png)
 
 這份清單的精神，可以濃縮成一句話：**你用的每一個「別人的東西」，都要說得出它是什麼、從哪來、可不可信。** 說不出來，就是風險。
 
 ## 對映：從法條到這段程式
 
-把供應鏈治理接回貫穿本系列的對映總表（Day 21）。下圖是這組對映的整體示意，逐項對應則列於下表：
+把供應鏈治理接回貫穿本系列的對映總表（Day 21）。下圖呈現這組對映：
 
 ![供應鏈治理對映法規、標準與 OWASP](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-06-mapping.png)
-
-![對映：從法條到這段程式（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-08-table-02.png)
 
 這裡特別對應到 OWASP 的「**供應鏈（LLM03）**」——它明確把「第三方模型、套件、資料來源」列為 LLM 應用的重大風險類別。而基本法的「問責」原則也在此有了新的一層意義：**你要為整個系統負責，就包括為它用到的每一個第三方元件負責——你總不能在出事時說「那是我下載的模型自己有問題」。** 一份 AI-BOM，就是「我對我的供應鏈心裡有數」的證據。
 

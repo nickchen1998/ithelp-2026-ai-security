@@ -92,11 +92,9 @@ Day 9 提過，42001 與 ISO 27001（資訊安全管理系統，Information Secu
 
 ## 導入時該準備的文件清單
 
-把上面各章「要產出的文件」彙整起來，就是一份導入 42001 時的文件準備清單。下圖是這份清單的整體樣貌，逐章的摘要則列於下表，可作為實務起點：
+把上面各章「要產出的文件」彙整起來，就是一份導入 42001 時的文件準備清單。下圖可作為實務起點：
 
 ![42001 各章要產出的登載之資訊清單](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day10/Day10-04-document-checklist.png)
-
-![導入時該準備的文件清單（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day10/Day10-06-table-01.png)
 
 要提醒的是，這份清單是**幫助理解的整理，不是標準的原文**——實際導入時，仍須以 CNS 42001／ISO/IEC 42001 正本所載的要求為準。
 

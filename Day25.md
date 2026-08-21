@@ -185,13 +185,11 @@ def retrieve_guarded(question, chunks, matrix, top_k, user):
 
 ## 對映：從法條到這段程式
 
-把今天的存取控制，接回貫穿本系列的對映總表（Day 21）。下圖是這組對映的整體示意，逐項對應則列於下表：
+把今天的存取控制，接回貫穿本系列的對映總表（Day 21）。下圖呈現這組對映：
 
 ![存取控制對映法規、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day25/Day25-05-mapping.png)
 
-![對映：從法條到這段程式（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day25/Day25-06-table-01.png)
-
-這張表可以看到，「存取控制」這個抽象要求，最後落成了 `can_access()` 這個權限規則、和 `retrieve_guarded()` 裡那一行 `np.where(allowed, scores, -np.inf)`。而情境三「擋下跨租戶洩漏」的實跑結果，將來就是送 AIEC「資安」評測時，最有說服力的技術證據之一。
+從這組對映可以看到，「存取控制」這個抽象要求，最後落成了 `can_access()` 這個權限規則、和 `retrieve_guarded()` 裡那一行 `np.where(allowed, scores, -np.inf)`。而情境三「擋下跨租戶洩漏」的實跑結果，將來就是送 AIEC「資安」評測時，最有說服力的技術證據之一。
 
 ## 誠實的限制：存取控制也有邊界
 

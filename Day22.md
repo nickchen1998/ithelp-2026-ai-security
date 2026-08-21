@@ -132,13 +132,11 @@ def run(title, doc_text, question):
 
 ## 對映：從法條到這段程式
 
-把今天的實作接回治理框架，這段程式碼同時回應了法規、標準與 AI 產品與系統評測中心（Artificial Intelligence Evaluation Center，以下簡稱 AIEC）評測三個層次的要求。下圖是這組對映的整體示意，逐項對應則列於下表：
+把今天的實作接回治理框架，這段程式碼同時回應了法規、標準與 AI 產品與系統評測中心（Artificial Intelligence Evaluation Center，以下簡稱 AIEC）評測三個層次的要求。下圖呈現這組對映：
 
 ![資料治理對映法規原則、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day22/Day22-04-mapping.png)
 
-![對映：從法條到這段程式（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day22/Day22-05-table-01.png)
-
-這張表就是「從法條到程式碼」在資料層的具體樣貌：**一句抽象的「隱私保護」原則，最後落成了 `deidentify()` 與 `minimize()` 這兩個函式、以及一份乾淨的知識庫。** 而情境 B 的「未洩漏」實跑結果，將來就是送 AIEC「隱私」評測時，可以拿得出手的技術證據。
+這組對映就是「從法條到程式碼」在資料層的具體樣貌：**一句抽象的「隱私保護」原則，最後落成了 `deidentify()` 與 `minimize()` 這兩個函式、以及一份乾淨的知識庫。** 而情境 B 的「未洩漏」實跑結果，將來就是送 AIEC「隱私」評測時，可以拿得出手的技術證據。
 
 ## 小結與明日預告
 
