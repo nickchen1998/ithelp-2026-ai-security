@@ -96,15 +96,7 @@ Day 9 提過，42001 與 ISO 27001（資訊安全管理系統，Information Secu
 
 ![42001 各章要產出的登載之資訊清單](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day10/Day10-04-document-checklist.png)
 
-| 章 | 大致要準備的登載之資訊（文件與紀錄） |
-| --- | --- |
-| 4 組織之全景 | AIMS 範圍說明、利害關係人與需求盤點 |
-| 5 領導作為 | AI 政策、角色與權責分工 |
-| 6 規劃 | 風險評鑑結果、風險處理計畫、AI 目標 |
-| 7 支援 | 能力與訓練紀錄、溝通計畫、文件控制程序 |
-| 8 運作 | 運作流程文件、AI 生命週期紀錄、衝擊評鑑 |
-| 9 效能評估 | 監視量測結果、內部稽核報告、管理審查紀錄 |
-| 10 改善 | 不符合與矯正措施紀錄、持續改善紀錄 |
+![導入時該準備的文件清單（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day10/Day10-06-table-01.png)
 
 要提醒的是，這份清單是**幫助理解的整理，不是標準的原文**——實際導入時，仍須以 CNS 42001／ISO/IEC 42001 正本所載的要求為準。
 

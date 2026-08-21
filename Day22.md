@@ -136,11 +136,7 @@ def run(title, doc_text, question):
 
 ![資料治理對映法規原則、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day22/Day22-04-mapping.png)
 
-| 層次 | 要求 | 今天的技術控制 |
-| --- | --- | --- |
-| 法規（基本法第 4 條） | 隱私保護與資料治理：資料最小化、避免外洩 | 去識別化＋資料最小化 |
-| 標準（ISO/IEC 42001 附錄 A） | 「用於 AI 系統之資料」控制的目的：資料被治理 | 來源盤點＋進庫前處理流程 |
-| 評測（AIEC 十大，Day 18） | 隱私：不外洩個資 | 情境 B 的「未洩漏」即為證據 |
+![對映：從法條到這段程式（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day22/Day22-05-table-01.png)
 
 這張表就是「從法條到程式碼」在資料層的具體樣貌：**一句抽象的「隱私保護」原則，最後落成了 `deidentify()` 與 `minimize()` 這兩個函式、以及一份乾淨的知識庫。** 而情境 B 的「未洩漏」實跑結果，將來就是送 AIEC「隱私」評測時，可以拿得出手的技術證據。
 

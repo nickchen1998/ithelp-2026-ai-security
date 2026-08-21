@@ -262,11 +262,7 @@ if __name__ == "__main__":
 
 ![輸入層防禦對映法規、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day23/Day23-06-mapping.png)
 
-| 層次 | 要求 | 今天的技術控制 |
-| --- | --- | --- |
-| 法規（基本法第 4 條） | 資安與安全：建立資安防護、防範攻擊、確保系統穩健 | 提示注入偵測、指令與資料分離 |
-| 標準（ISO/IEC 42001 附錄 A） | AI 系統生命週期中「安全」相關控制的目的：對已知威脅有防護 | 三道輸入層防禦與信任邊界設計 |
-| 評測（AIEC 十大，Day 18） | 資安、安全性：能否抵禦提示注入等攻擊 | 「已設防」擋下兩種注入即為證據 |
+![對映：從法條到這段程式（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day23/Day23-07-table-01.png)
 
 這張表就是「從法條到程式碼」在輸入層的具體樣貌：**一句抽象的「資安與安全：防範攻擊、確保穩健」原則，最後落成了 `scan_injection()`、`build_user_prompt()`、`sanitize_context()` 這幾個函式，以及一份劃清了信任邊界的提示。** 而「已設防擋下注入」的實跑結果，將來就是送 AIEC「資安」「安全性」評測時，拿得出手的技術證據。
 

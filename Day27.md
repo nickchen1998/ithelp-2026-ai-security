@@ -187,11 +187,7 @@ ok, bad = log.verify()
 
 ![稽核日誌對映法規、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day27/Day27-06-mapping.png)
 
-| 層次 | 要求 | 今天的技術控制 |
-| --- | --- | --- |
-| 法規（基本法第 4 條） | 問責：能歸屬責任、還原決策軌跡 | 結構化稽核日誌、可追溯性 |
-| 標準（ISO/IEC 42001 附錄 A） | 與紀錄、可追溯、事件管理相關控制的目的：留存活動軌跡以供查核 | `AuditLog` 與雜湊鏈 |
-| 評測（AIEC 十大，Day 18） | 當責性：出事能追查、能歸責 | 竄改偵測即為證據 |
+![對映：從法條到這段程式（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day27/Day27-07-table-01.png)
 
 這張表清楚呈現：抽象的「問責」「當責性」原則，最後落成了 `AuditLog` 這個類別、`make_entry` 記錄的中繼資料、以及那條會「斷鏈報警」的雜湊鏈。特別值得一提的是——**這份稽核日誌本身，就是把前面所有防禦「化為證據」的地方**：Day 25 的存取控制擋住了跨租戶攻擊，而正是今天的 `defenses: access_filtered` 這筆紀錄，證明了「它確實擋住了」。日誌是所有控制措施在稽核時能拿得出手的共同憑證。
 

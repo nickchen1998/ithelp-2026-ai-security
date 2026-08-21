@@ -186,12 +186,7 @@ if __name__ == "__main__":
 
 ![四類供應鏈的治理清單](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-05-checklist.png)
 
-| 供應鏈類別 | 治理動作 |
-| --- | --- |
-| **第三方模型** | 只用可信來源；記錄來源、版本、digest（納入 AI-BOM）；釘選並定期驗證；盤點模型授權條款 |
-| **相依套件** | 釘選版本（`requirements.txt` 加雜湊）；產生 SBOM；用工具掃描已知漏洞（CVE）；警惕名稱搶注 |
-| **外部 API** | 盤點資料流向（哪些資料送給誰）；確認合規與資料處理條款；規劃備援與降級 |
-| **資料來源** | 確認來源可信；進知識庫前做治理（回指 Day 22）；防資料中毒 |
+![模型與相依套件的治理清單（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-07-table-01.png)
 
 這份清單的精神，可以濃縮成一句話：**你用的每一個「別人的東西」，都要說得出它是什麼、從哪來、可不可信。** 說不出來，就是風險。
 
@@ -201,11 +196,7 @@ if __name__ == "__main__":
 
 ![供應鏈治理對映法規、標準與 OWASP](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-06-mapping.png)
 
-| 層次 | 要求 | 今天的技術控制 |
-| --- | --- | --- |
-| 法規（基本法第 4 條） | 問責：對系統的組成負責、可課責 | AI-BOM 盤點、供應鏈可追溯 |
-| 標準（ISO/IEC 42001 附錄 A） | 與第三方、供應者相關控制的目的：管理外部提供之元件的風險 | 釘選與驗證流程 |
-| 風險（OWASP LLM03） | 供應鏈：管理第三方模型、套件、資料的風險 | 完整性驗證、掉包偵測 |
+![對映：從法條到這段程式（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-08-table-02.png)
 
 這裡特別對應到 OWASP 的「**供應鏈（LLM03）**」——它明確把「第三方模型、套件、資料來源」列為 LLM 應用的重大風險類別。而基本法的「問責」原則也在此有了新的一層意義：**你要為整個系統負責，就包括為它用到的每一個第三方元件負責——你總不能在出事時說「那是我下載的模型自己有問題」。** 一份 AI-BOM，就是「我對我的供應鏈心裡有數」的證據。
 

@@ -189,12 +189,7 @@ def retrieve_guarded(question, chunks, matrix, top_k, user):
 
 ![存取控制對映法規、42001 控制與 AIEC 評測](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day25/Day25-05-mapping.png)
 
-| 層次 | 要求 | 今天的技術控制 |
-| --- | --- | --- |
-| 法規（基本法第 4 條） | 資安與安全：防範未授權存取 | 檢索層權限過濾（`retrieve_guarded`） |
-| 法規（個資法） | 個人資料非經授權不得提供 | 最小權限、租戶隔離 |
-| 標準（ISO/IEC 42001 附錄 A） | 與存取控制相關控制的目的：確保只有經授權者能存取 AI 系統與資料 | `can_access` 規則、預設拒絕 |
-| 評測（AIEC 十大，Day 18） | 資安：能否防止未授權的資料存取 | 情境三「擋下跨租戶」即為證據 |
+![對映：從法條到這段程式（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day25/Day25-06-table-01.png)
 
 這張表可以看到，「存取控制」這個抽象要求，最後落成了 `can_access()` 這個權限規則、和 `retrieve_guarded()` 裡那一行 `np.where(allowed, scores, -np.inf)`。而情境三「擋下跨租戶洩漏」的實跑結果，將來就是送 AIEC「資安」評測時，最有說服力的技術證據之一。
 

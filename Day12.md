@@ -101,15 +101,7 @@
 
 ![九組控制對映到第四階段的技術實作](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day12/Day12-05-mapping-stage4.png)
 
-| 附錄 A 控制組 | 主要落到第四階段哪一天 |
-| --- | --- |
-| 資源、第三方關係 | Day 28 供應鏈與模型／套件治理 |
-| 衝擊評鑑 | Day 26 紅隊測試（提供衝擊/風險證據） |
-| 生命週期 | 貫穿 Day 21–30（開發到維運） |
-| 資料 | Day 22 資料治理與外洩防護 |
-| 對關注方的資訊 | Day 24 輸出層（揭露、來源標註） |
-| 使用 | Day 25 存取控制與最小權限 |
-| （多組共通的追溯需求） | Day 27 稽核日誌與可追溯性 |
+![附錄 A 與第四階段的對映（表格圖片）](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day12/Day12-06-table-01.png)
 
 這張表就是「從法條到程式碼」在附錄 A 這一層的具體樣貌：**每一組管理控制，最後都會在第四階段找到一段對應的程式或一份對應的紀錄來當證據。**
 
