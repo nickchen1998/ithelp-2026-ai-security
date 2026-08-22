@@ -43,7 +43,7 @@ Day 4、Day 5 我們其實已經在做紅隊測試了——親手打穿一個沒
 
 ## 動手（一）：準備攻擊靶機
 
-紅隊要打的目標，是一套**合成了 Day 22–25 全部防禦**的醫院客服（完整檔在 `程式碼/Day26/defended_rag.py`）。它把前四天的防線整合進一個 `respond()` 函式，並用一個 `defended` 參數切換「未設防／已設防」，方便對照：
+紅隊要打的目標，是一套**合成了 Day 22–25 全部防禦**的醫院客服（完整檔在 [`程式碼/Day26/defended_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day26/defended_rag.py)）。它把前四天的防線整合進一個 `respond()` 函式，並用一個 `defended` 參數切換「未設防／已設防」，方便對照：
 
 - **未設防**：對整個知識庫檢索、直接把結果餵給模型，沒有任何防護（重現 Day 21）。
 - **已設防**：檢索層做權限過濾（Day 25）、檢索來源做注入淨化（Day 23）、系統提示加安全規則（Day 23）、出口做個資遮蔽、低相似度做 grounding 檢查（Day 24）。
@@ -210,5 +210,5 @@ if __name__ == "__main__":
 **明天（Day 27）進入第五層——稽核日誌與可追溯性。** 我們已經能防禦、也能驗證防禦，但還缺最後一塊拼圖：**萬一真的出事了，能不能還原「誰、在什麼時候、做了什麼」？** 前面幾天我們已經好幾次埋下這個伏筆（存取查詢要留紀錄、紅隊結果要可稽核）——明天就把稽核日誌這條「可追溯性」的防線正式補上，對應「問責」原則與 AIEC 的「當責性」。
 
 ---
-- 程式碼：`程式碼/Day26/red_team.py`（紅隊測試框架）與 `程式碼/Day26/defended_rag.py`（合成 Day 22–25 防禦的攻擊靶機）、`程式碼/Day26/knowledge/`（沿用 Day 25 分層知識庫，另加 Day 23 被下毒公告）。所有病患病歷與公告為大型語言模型（Large Language Model，以下簡稱 LLM）生成之虛構假資料，姓名、病歷號、電話等均為杜撰的假值，僅供 Demo。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因 LLM 具非確定性，重現時 ASR 可能與本文略有出入。
+- 程式碼：[`程式碼/Day26/red_team.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day26/red_team.py)（紅隊測試框架）與 [`程式碼/Day26/defended_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day26/defended_rag.py)（合成 Day 22–25 防禦的攻擊靶機）、[`程式碼/Day26/knowledge/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day26/knowledge)（沿用 Day 25 分層知識庫，另加 Day 23 被下毒公告）。所有病患病歷與公告為大型語言模型（Large Language Model，以下簡稱 LLM）生成之虛構假資料，姓名、病歷號、電話等均為杜撰的假值，僅供 Demo。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因 LLM 具非確定性，重現時 ASR 可能與本文略有出入。
 - 參考條文／出處：《人工智慧基本法》第 4 條「資安與安全」原則（全國法規資料庫）；ISO/IEC 42001 附錄 A 相關控制與其 PDCA（規劃—執行—查核—行動）循環精神以目的轉述、未引原文；紅隊測試（Red Teaming）、攻擊成功率（ASR）、金絲雀（canary）為通用資安概念；AIEC「彈性（Resilient）」「安全性」評測項目見 Day 18。

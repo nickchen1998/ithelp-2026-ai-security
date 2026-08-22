@@ -263,10 +263,10 @@ def redact_output(text: str) -> str:
 3. 加上「機密不入提示、輸出防護網」兩道最小防禦，同樣的攻擊全部守住；
 4. 並從一個「防住洩漏、卻防不住幻覺」的真實意外，理解了「深度防禦」為什麼非做不可。
 
-完整可執行的程式碼，放在本系列儲存庫的 `程式碼/Day04/` 目錄，歡迎自己跑跑看、試試你能不能想出新的攻擊招式。
+完整可執行的程式碼，放在本系列儲存庫的 [`程式碼/Day04/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day04) 目錄，歡迎自己跑跑看、試試你能不能想出新的攻擊招式。
 
 **明天（Day 5）將把攻擊的層次再抬一階：資料外洩與模型濫用。** 內容會示範如何像資安紅隊（Red Team）一樣，以連續、有策略的追問，逐步誘導模型吐出它不該吐的東西；並收束整個第一階段——這些風險一旦看過它們有多容易觸發，就會理解：要治理它們，需要一套「制度」來系統性地進行。而那，正是第二階段的主題。
 
 ---
-- 程式碼：`程式碼/Day04/vulnerable_bot.py`（未防護版）、`程式碼/Day04/defended_bot.py`（防禦版）
+- 程式碼：[`程式碼/Day04/vulnerable_bot.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day04/vulnerable_bot.py)（未防護版）、[`程式碼/Day04/defended_bot.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day04/defended_bot.py)（防禦版）
 - 參考條文／出處：提示注入概念改寫自 OWASP Top 10 for LLM Applications 2025（CC BY-SA 4.0，https://genai.owasp.org ）；《人工智慧基本法》第 4 條第 4 款、第 7 款，全國法規資料庫。本文所有模型輸出均為作者於本機實際執行 qwen3:8b 之真實結果，因 LLM 具非確定性，讀者重現時結果可能略有不同。

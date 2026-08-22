@@ -42,7 +42,7 @@
 
 ## 動手：檢索層的權限過濾
 
-來看程式怎麼做（完整檔在 `程式碼/Day25/access_control_rag.py`；RAG 的向量化與生成沿用前幾日，此處聚焦存取控制新增的部分）。
+來看程式怎麼做（完整檔在 [`程式碼/Day25/access_control_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day25/access_control_rag.py)；RAG 的向量化與生成沿用前幾日，此處聚焦存取控制新增的部分）。
 
 ### 第一步：讓每一筆資料「知道自己屬於誰」
 
@@ -214,5 +214,5 @@ def retrieve_guarded(question, chunks, matrix, top_k, user):
 **明天（Day 26）進入一個跨層的主題——紅隊測試實作。** 我們已經一層一層蓋好了防禦（資料、輸入、輸出、存取），但「蓋好了」不等於「守得住」。要怎麼知道這些防線真的有效？答案是**主動攻擊自己**：把紅隊測試變成一套可重複的流程——攻擊案例庫、自動化追問、結果評分。我們會回頭用前幾天的攻擊，對這套系統跑一輪完整的紅隊測試循環。
 
 ---
-- 程式碼：`程式碼/Day25/access_control_rag.py`（存取控制 RAG）與 `程式碼/Day25/knowledge/`（依 public／patients／staff 分權限層的知識庫）。病患病歷（`P001.md`、`P002.md`）與內部公告為大型語言模型（Large Language Model，以下簡稱 LLM）生成之虛構假資料，姓名、病歷號、電話、醫師姓名均為杜撰，電話與病歷號為格式正確但虛構的假值，僅供 Demo；正式系統的病歷應存於受控資料庫並搭配完整身分驗證。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因 LLM 具非確定性，重現時回覆文字可能與本文節錄略有不同。（說明：本系列各日的虛構假資料為各自獨立生成，人物設定——姓名、病歷號、電話、病情等——不跨日延續，請勿跨篇對照。）
+- 程式碼：[`程式碼/Day25/access_control_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day25/access_control_rag.py)（存取控制 RAG）與 [`程式碼/Day25/knowledge/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day25/knowledge)（依 public／patients／staff 分權限層的知識庫）。病患病歷（`P001.md`、`P002.md`）與內部公告為大型語言模型（Large Language Model，以下簡稱 LLM）生成之虛構假資料，姓名、病歷號、電話、醫師姓名均為杜撰，電話與病歷號為格式正確但虛構的假值，僅供 Demo；正式系統的病歷應存於受控資料庫並搭配完整身分驗證。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因 LLM 具非確定性，重現時回覆文字可能與本文節錄略有不同。（說明：本系列各日的虛構假資料為各自獨立生成，人物設定——姓名、病歷號、電話、病情等——不跨日延續，請勿跨篇對照。）
 - 參考條文／出處：《人工智慧基本法》第 4 條「資安與安全」原則（全國法規資料庫）；《個人資料保護法》關於個人資料利用與安全維護之規範（全國法規資料庫）；ISO/IEC 42001 附錄 A 存取控制相關控制以目的轉述、未引原文；最小權限（Least Privilege）、租戶隔離（Tenant Isolation）、身分驗證（Authentication）為通用資安概念；AIEC「資安」評測項目見 Day 18。

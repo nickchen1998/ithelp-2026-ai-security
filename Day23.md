@@ -67,7 +67,7 @@
 
 ## 三道防禦：一套可複用的輸入過濾樣板
 
-輸入層的防禦，核心是三道，合起來就是一份可以搬到任何 LLM 應用的「輸入過濾樣板」。以下逐一說明，並附上完整程式碼（完整檔在 `程式碼/Day23/input_defense_rag.py`；RAG 的載入、切塊、向量化、檢索沿用 Day 21，此處不再重貼，只呈現輸入層新增的部分）。
+輸入層的防禦，核心是三道，合起來就是一份可以搬到任何 LLM 應用的「輸入過濾樣板」。以下逐一說明，並附上完整程式碼（完整檔在 [`程式碼/Day23/input_defense_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day23/input_defense_rag.py)；RAG 的載入、切塊、向量化、檢索沿用 Day 21，此處不再重貼，只呈現輸入層新增的部分）。
 
 ### 防禦一：提示注入偵測——用樣式庫掃出攻擊話術
 
@@ -290,5 +290,5 @@ if __name__ == "__main__":
 **明天（Day 24）進入第三層——輸出層：輸出過濾、幻覺與可解釋性。** 輸入層擋住了「送進模型的攻擊」，但模型「吐出來的東西」同樣需要把關——會不會洩漏敏感內容？會不會憑空捏造（幻覺）？答案能不能追溯回來源？我們會替客服補上出口的最後一道防護網。
 
 ---
-- 程式碼：`程式碼/Day23/input_defense_rag.py`（輸入層防禦 RAG）與 `程式碼/Day23/knowledge/`（知識庫）。其中 `hospital_notice.md` 為 LLM 生成之虛構公告，「刻意」植入一段惡意指令以示範間接注入，檔頭已明確標註，正式系統知識庫不應含此類內容；其餘假資料沿用 Day 21／22。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因大型語言模型具非確定性，重現時回覆文字可能與本文節錄略有不同。
+- 程式碼：[`程式碼/Day23/input_defense_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day23/input_defense_rag.py)（輸入層防禦 RAG）與 [`程式碼/Day23/knowledge/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day23/knowledge)（知識庫）。其中 [`hospital_notice.md`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day23/knowledge/hospital_notice.md) 為 LLM 生成之虛構公告，「刻意」植入一段惡意指令以示範間接注入，檔頭已明確標註，正式系統知識庫不應含此類內容；其餘假資料沿用 Day 21／22。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因大型語言模型具非確定性，重現時回覆文字可能與本文節錄略有不同。
 - 參考條文／出處：《人工智慧基本法》第 4 條「資安與安全」原則（全國法規資料庫）；ISO/IEC 42001 附錄 A 安全相關控制以目的轉述、未引原文；提示注入分類（直接／間接）與風險編號參考 OWASP Top 10 for LLM Applications 2025——直接與間接注入均屬 LLM01「提示注入」項下之子類，LLM08「向量與嵌入弱點」則為相鄰、聚焦向量／知識庫管線的另一類風險，CC BY-SA 4.0；AIEC「資安」「安全性」評測項目見 Day 18。

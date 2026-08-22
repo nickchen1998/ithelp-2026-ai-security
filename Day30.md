@@ -43,7 +43,7 @@
 
 ## 白皮書合成：把三十天收攏成一份資產
 
-最後一個技術動作，是把這三十天散落的成果，**合成一份可交付、可再利用的白皮書**。我們寫一支小工具（完整檔在 `程式碼/Day30/build_whitepaper.py`）來做這件事——它掃描三十篇文章的標題、依四階段整理成目錄，嵌入 Day 29 的核心檢核表，輸出一份白皮書骨架。
+最後一個技術動作，是把這三十天散落的成果，**合成一份可交付、可再利用的白皮書**。我們寫一支小工具（完整檔在 [`程式碼/Day30/build_whitepaper.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day30/build_whitepaper.py)）來做這件事——它掃描三十篇文章的標題、依四階段整理成目錄，嵌入 Day 29 的核心檢核表，輸出一份白皮書骨架。
 
 ### 掃描標題、分階段整理
 
@@ -93,7 +93,7 @@ def build() -> str:
     return "\n".join(lines)
 ```
 
-`build()` 把四階段的目錄、Day 29 的十項檢核表（此處用精簡版）、以及可再利用資產的附錄，串成一份完整的白皮書骨架字串，寫進 `白皮書.md`（`CHECKLIST` 精簡版與附錄組裝的完整程式見程式碼檔）。這支工具本身不難，但它的意義在於——**它把「三十篇零散文章」變成了「一份有結構、可導覽、可交付的資產」。**
+`build()` 把四階段的目錄、Day 29 的十項檢核表（此處用精簡版）、以及可再利用資產的附錄，串成一份完整的白皮書骨架字串，寫進 `白皮書.md`（`CHECKLIST` 精簡版與附錄組裝的完整程式見 [`程式碼/Day30/build_whitepaper.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day30/build_whitepaper.py)）。這支工具本身不難，但它的意義在於——**它把「三十篇零散文章」變成了「一份有結構、可導覽、可交付的資產」。**
 
 ## 實跑：一份白皮書就這樣長出來
 
@@ -146,5 +146,5 @@ def build() -> str:
 感謝每一位讀到這裡的讀者。願這份白皮書，能成為你手上那個 AI 專案，真正用得上的起點。
 
 ---
-- 程式碼：`程式碼/Day30/build_whitepaper.py`（白皮書合成器）與其產出 `白皮書.md`。程式掃描本系列 30 篇文章標題、依四階段整理，並嵌入 Day 29 核心檢核表，結果為真實執行輸出。
+- 程式碼：[`程式碼/Day30/build_whitepaper.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day30/build_whitepaper.py)（白皮書合成器）與其產出 [`程式碼/Day30/白皮書.md`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day30/%E7%99%BD%E7%9A%AE%E6%9B%B8.md)。程式掃描本系列 30 篇文章標題、依四階段整理，並嵌入 Day 29 核心檢核表，結果為真實執行輸出。
 - 參考出處：本篇為系列總結，內容回顧 Day 1–29；所涉《人工智慧基本法》、ISO/IEC 42001／CNS 42001、AIEC 十大評測項目等，各自出處見對應日次；四階段架構與「從法條到程式碼」方法論為本系列原創整理。

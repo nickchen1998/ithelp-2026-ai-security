@@ -58,7 +58,7 @@ CSET 的研究提醒我們：**「做過紅隊測試」不等於「就安全了�
 
 ### 動手：程式與真實結果
 
-核心程式（`red_team_pii.py`，完整檔在儲存庫 `程式碼/Day05/`）的關鍵，是把攻擊寫成一個「逐輪進逼」的腳本，並把整段對話歷史都餵給模型，讓它記得前面聊過什麼：
+核心程式（`red_team_pii.py`，完整檔在儲存庫 [`程式碼/Day05/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day05)）的關鍵，是把攻擊寫成一個「逐輪進逼」的腳本，並把整段對話歷史都餵給模型，讓它記得前面聊過什麼：
 
 ```python
 # 紅隊的攻擊腳本：一連串逐步進逼的問題（Crescendo）
@@ -230,10 +230,10 @@ if __name__ == "__main__":
 4. 用情感訴求突破了強模型的角色邊界（模型濫用），並學到「A 面向安全 ≠ B 面向安全」；
 5. 把五天串成一條線，導出結論：**零散的技術防禦不夠，需要一套制度來系統性治理。**
 
-完整程式碼（三支 demo）都放在 `程式碼/Day05/`，建議實際執行一次，特別是計算成功率的 `red_team_runner.py`；親眼看到那個百分比，遠比文字描述來得深刻。
+完整程式碼（三支 demo）都放在 [`程式碼/Day05/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day05)，建議實際執行一次，特別是計算成功率的 [`程式碼/Day05/red_team_runner.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day05/red_team_runner.py)；親眼看到那個百分比，遠比文字描述來得深刻。
 
 **明天（Day 6）正式進入第二階段「制度與標準」，翻開台灣第一部 AI 專法《人工智慧基本法》。** 內容將說明它的立法背景，以及最實用的一塊——「誰在管、怎麼管」的權責架構：中央的國科會、行政院的國家人工智慧戰略特別委員會，以及地方政府各自扮演的角色。技術的仗告一段落，接下來看制度如何接手。
 
 ---
-- 程式碼：`程式碼/Day05/red_team_pii.py`（資料外洩）、`red_team_runner.py`（自動化紅隊/ASR）、`red_team_role_abuse.py`（模型濫用）
+- 程式碼：[`程式碼/Day05/red_team_pii.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day05/red_team_pii.py)（資料外洩）、[`程式碼/Day05/red_team_runner.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day05/red_team_runner.py)（自動化紅隊/ASR）、[`程式碼/Day05/red_team_role_abuse.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day05/red_team_role_abuse.py)（模型濫用）
 - 參考資料／出處：紅隊定義與起源參考 NIST 對 red team 之定義、美國喬治城大學 CSET〈What Does AI Red-Teaming Actually Mean?〉（cset.georgetown.edu）、及 Crescendo 多輪攻擊相關公開研究；「敏感資訊洩漏」概念改寫自 OWASP Top 10 for LLM Applications 2025（CC BY-SA 4.0，https://genai.owasp.org ）；《人工智慧基本法》第 4、5、16 條，全國法規資料庫。本文模型輸出均為作者於本機實跑 gemma3:4b／qwen3:8b 之真實結果，因 LLM 具非確定性，重現時結果可能不同。

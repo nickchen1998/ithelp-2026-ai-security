@@ -45,11 +45,11 @@ RAG 的解法很直覺，用一個生活化的比喻就懂——**開書考試**
 
 ## 動手：最小 RAG 的程式
 
-概念講完，來看程式。我們刻意寫一個**最小**版本——不用任何向量資料庫或框架，只用 `numpy` 加本機 Ollama，把五個步驟原原本本地呈現出來，方便理解。完整程式在 `程式碼/Day21/minimal_rag.py`；以下依邏輯分段、依序把整支程式呈現出來，順著讀就能理解全貌。
+概念講完，來看程式。我們刻意寫一個**最小**版本——不用任何向量資料庫或框架，只用 `numpy` 加本機 Ollama，把五個步驟原原本本地呈現出來，方便理解。完整程式在 [`程式碼/Day21/minimal_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day21/minimal_rag.py)；以下依邏輯分段、依序把整支程式呈現出來，順著讀就能理解全貌。
 
 ### 知識庫：兩份文件
 
-知識庫放在 `程式碼/Day21/knowledge/`，有兩份文件：
+知識庫放在 [`程式碼/Day21/knowledge/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day21/knowledge)，有兩份文件：
 
 - `hospital_faq.md`：虛構的「仁心醫院」常見問答。**這是本系列自製的假資料**——醫院名稱、時間、流程全為杜撰，檔頭都標註了「由 LLM 生成、非真實來源、僅供 Demo」，絕不含任何真實個資。
 - `ai_basic_law.md`：《人工智慧基本法》節選條文（真實法律，依《著作權法》第 9 條可自由引用）。
@@ -247,5 +247,5 @@ if __name__ == "__main__":
 **明天（Day 22）進入第一層——資料層：資料治理與外洩防護。** 我們會把（自製的、虛構的）病患資料放進知識庫，示範如果不做治理會怎麼外洩，再動手做去識別化與最小化，對應基本法的「隱私保護與資料治理」原則。地基打好了，開始逐層蓋防禦。
 
 ---
-- 程式碼：`程式碼/Day21/minimal_rag.py`（最小 RAG）與 `程式碼/Day21/knowledge/`（知識庫）。知識庫中的醫院 FAQ 為 LLM 生成之虛構假資料、非真實來源，僅供 Demo；基本法節選為真實法律條文。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出。
+- 程式碼：[`程式碼/Day21/minimal_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day21/minimal_rag.py)（最小 RAG）與 [`程式碼/Day21/knowledge/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day21/knowledge)（知識庫）。知識庫中的醫院 FAQ 為 LLM 生成之虛構假資料、非真實來源，僅供 Demo；基本法節選為真實法律條文。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出。
 - 參考條文／出處：《人工智慧基本法》第 3、4、5 條（全國法規資料庫）；AIEC 十大評測項目對映見 Day 18；RAG 為通用技術概念，本文以自建範例說明。

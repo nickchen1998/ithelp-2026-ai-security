@@ -44,7 +44,7 @@
 
 ## 動手：去識別化與最小化
 
-來看程式怎麼做。完整程式在 `程式碼/Day22/data_governance_demo.py`（環境沿用 Day 21：本機 Ollama，`qwen3:8b` 生成、`embeddinggemma` 向量化；因模型非確定性，重現輸出可能略異）。為了聚焦在「治理」這件事上，本篇把 Day 21 的 RAG 索引與生成濃縮成兩個精簡函式 `build_index()`／`rag_answer()`（切塊後直接存純字串、系統提示也更精簡），核心原理與 Day 21 相同，以下只聚焦資料治理新增的部分。
+來看程式怎麼做。完整程式在 [`程式碼/Day22/data_governance_demo.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day22/data_governance_demo.py)（環境沿用 Day 21：本機 Ollama，`qwen3:8b` 生成、`embeddinggemma` 向量化；因模型非確定性，重現輸出可能略異）。為了聚焦在「治理」這件事上，本篇把 Day 21 的 RAG 索引與生成濃縮成兩個精簡函式 `build_index()`／`rag_answer()`（切塊後直接存純字串、系統提示也更精簡），核心原理與 Day 21 相同，以下只聚焦資料治理新增的部分。
 
 ### 去識別化：遮蔽直接識別符
 
@@ -150,5 +150,5 @@ def run(title, doc_text, question):
 **明天（Day 23）進入第二層——輸入層：提示注入防禦與輸入過濾。** 資料層守住了「知識庫裡有什麼」，但使用者的「輸入」本身也可能是攻擊——我們會把 Day 4 示範過的提示注入補上防禦，處理「使用者輸入」與「檢索來源」兩種信任邊界。
 
 ---
-- 程式碼：`程式碼/Day22/data_governance_demo.py` 與 `knowledge_raw/patients.md`。病患資料為 LLM 生成之虛構假資料、非真實來源，身分證與電話為格式正確但杜撰的假值，僅供 Demo；本檔刻意保留完整個資以示範「未治理」風險，正式系統不應如此。實作用本機 Ollama（`qwen3:8b`、`embeddinggemma`），結果為真實執行輸出；因大型語言模型具非確定性，重現時回覆文字可能與本文節錄略有不同。（說明：本系列各日的虛構假資料為各自獨立生成，人物設定不跨日延續，請勿跨篇對照。）
+- 程式碼：[`程式碼/Day22/data_governance_demo.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day22/data_governance_demo.py) 與 [`程式碼/Day22/knowledge_raw/patients.md`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day22/knowledge_raw/patients.md)。病患資料為 LLM 生成之虛構假資料、非真實來源，身分證與電話為格式正確但杜撰的假值，僅供 Demo；本檔刻意保留完整個資以示範「未治理」風險，正式系統不應如此。實作用本機 Ollama（`qwen3:8b`、`embeddinggemma`），結果為真實執行輸出；因大型語言模型具非確定性，重現時回覆文字可能與本文節錄略有不同。（說明：本系列各日的虛構假資料為各自獨立生成，人物設定不跨日延續，請勿跨篇對照。）
 - 參考條文／出處：《人工智慧基本法》第 4 條第 3 款「隱私保護與資料治理」（全國法規資料庫）；ISO/IEC 42001 附錄 A「用於 AI 系統之資料」控制以目的轉述、未引原文；去識別化、資料最小化為《個人資料保護法》與通用資料治理實務概念；AIEC「隱私」評測項目見 Day 18。

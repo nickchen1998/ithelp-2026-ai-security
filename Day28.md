@@ -40,7 +40,7 @@
 
 ## 動手：AI 物料清單與完整性驗證
 
-我們替本系列的 RAG demo 寫一支供應鏈盤點與驗證工具（完整檔在 `程式碼/Day28/ai_bom.py`），治理對象就是我們一路用到的模型與套件。
+我們替本系列的 RAG demo 寫一支供應鏈盤點與驗證工具（完整檔在 [`程式碼/Day28/ai_bom.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day28/ai_bom.py)），治理對象就是我們一路用到的模型與套件。
 
 ### 步驟一：盤點——產生 AI 物料清單
 
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     print_results("被掉包的環境", verify(tampered, TRUSTED_MANIFEST))
 ```
 
-其中 `print_results()` 負責把驗證結果逐項印出並回報整體是否相符（完整程式在 `ai_bom.py`）；情境二用 `deadbeef` 開頭覆蓋掉 `qwen3:8b` 的 digest，模擬「模型被換成同名下毒版、內容一改指紋就變」。兩個情境的對照如下圖所示，實際執行輸出如下：
+其中 `print_results()` 負責把驗證結果逐項印出並回報整體是否相符（完整程式在 [`程式碼/Day28/ai_bom.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day28/ai_bom.py)）；情境二用 `deadbeef` 開頭覆蓋掉 `qwen3:8b` 的 digest，模擬「模型被換成同名下毒版、內容一改指紋就變」。兩個情境的對照如下圖所示，實際執行輸出如下：
 
 ![正常環境驗證通過 vs 掉包被抓出](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day28/Day28-04-verify-result.png)
 
@@ -221,5 +221,5 @@ if __name__ == "__main__":
 **明天（Day 29）進入整個系列的核心交付物——AI 專案資安合規檢核表。** 我們會把 Day 1 到 Day 28 的所有內容——法規原則、ISO/IEC 42001 控制、AIEC 評測項目、技術控制——收斂成一份**可勾選的檢核表**，每一項都對應「法條→標準→評測→技術」，並附上「怎麼驗證」。這份檢核表，就是本系列白皮書的核心。
 
 ---
-- 程式碼：`程式碼/Day28/ai_bom.py`（AI 物料清單與供應鏈完整性驗證）。程式盤點本系列 RAG demo 用到的模型（`qwen3:8b`、`embeddinggemma`）與套件（`ollama`、`numpy`），digest 與版本為本機環境真實值；「被掉包」情境的 `deadbeef…` 指紋為模擬示範。實作用本機 Ollama，結果為真實執行輸出。
+- 程式碼：[`程式碼/Day28/ai_bom.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day28/ai_bom.py)（AI 物料清單與供應鏈完整性驗證）。程式盤點本系列 RAG demo 用到的模型（`qwen3:8b`、`embeddinggemma`）與套件（`ollama`、`numpy`），digest 與版本為本機環境真實值；「被掉包」情境的 `deadbeef…` 指紋為模擬示範。實作用本機 Ollama，結果為真實執行輸出。
 - 參考條文／出處：《人工智慧基本法》第 4 條「問責」原則（全國法規資料庫）；ISO/IEC 42001 附錄 A 關於第三方與供應者風險之相關控制以目的轉述、未引原文；供應鏈風險分類參考 OWASP Top 10 for LLM Applications 2025（LLM03 供應鏈；資料與模型中毒另見 LLM04），CC BY-SA 4.0；軟體物料清單（SBOM）、名稱搶注（typosquatting）、資料中毒（Data Poisoning）為通用資安概念。

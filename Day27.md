@@ -214,5 +214,5 @@ ok, bad = log.verify()
 **明天（Day 28）進入另一個跨層主題——供應鏈與模型／套件治理。** 我們自己寫的程式再安全，也擋不住「用到的第三方東西本身有問題」——那個下載來的開源模型可信嗎？那些 `pip install` 進來的套件有沒有被下毒？外部 API、資料來源呢？明天就來盤點 AI 系統的供應鏈風險，對應 OWASP 的供應鏈條目與基本法的問責原則。
 
 ---
-- 程式碼：`程式碼/Day27/audit_log.py`（雜湊鏈稽核日誌，可複用樣板）與 `程式碼/Day27/audit_rag.py`（接進防禦 RAG 的示範）、`程式碼/Day27/knowledge/`（沿用 Day 25／26 分層知識庫）。病患病歷等為大型語言模型（Large Language Model，以下簡稱 LLM）生成之虛構假資料，姓名、電話、病歷號均為杜撰的假值，僅供 Demo。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因 LLM 具非確定性，重現時回覆與時間戳會不同，但雜湊鏈的竄改偵測邏輯不受影響。
+- 程式碼：[`程式碼/Day27/audit_log.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day27/audit_log.py)（雜湊鏈稽核日誌，可複用樣板）與 [`程式碼/Day27/audit_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day27/audit_rag.py)（接進防禦 RAG 的示範）、[`程式碼/Day27/knowledge/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day27/knowledge)（沿用 Day 25／26 分層知識庫）。病患病歷等為大型語言模型（Large Language Model，以下簡稱 LLM）生成之虛構假資料，姓名、電話、病歷號均為杜撰的假值，僅供 Demo。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因 LLM 具非確定性，重現時回覆與時間戳會不同，但雜湊鏈的竄改偵測邏輯不受影響。
 - 參考條文／出處：《人工智慧基本法》第 4 條「問責」原則（全國法規資料庫）；ISO/IEC 42001 附錄 A 關於紀錄與事件管理之相關控制以目的轉述、未引原文；雜湊（Hash）、SHA-256、雜湊鏈（Hash Chain）、區塊鏈（Blockchain）、防竄改（Tamper-evident）為通用資訊安全概念；AIEC「當責性」評測項目見 Day 18。

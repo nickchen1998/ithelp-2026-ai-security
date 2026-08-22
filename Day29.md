@@ -64,7 +64,7 @@
 
 ## 動手：把檢核表變成可執行的自評工具
 
-一張表格是靜態的。但如果把它寫成**機器可讀的結構化資料**，它就能變成一個可以「跑」的自評工具——拿一個專案的落實狀態去對照，自動算出準備度、列出缺口（完整檔在 `程式碼/Day29/compliance_checklist.py`）。
+一張表格是靜態的。但如果把它寫成**機器可讀的結構化資料**，它就能變成一個可以「跑」的自評工具——拿一個專案的落實狀態去對照，自動算出準備度、列出缺口（完整檔在 [`程式碼/Day29/compliance_checklist.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day29/compliance_checklist.py)）。
 
 ### 檢核表本體：結構化資料
 
@@ -180,7 +180,7 @@ if __name__ == "__main__":
     render_report(ASSESSMENT)   # 依 ASSESSMENT 印出自評報告：逐項狀態、準備度、缺口
 ```
 
-以上各段依序合併，就是可直接執行的完整程式；同一份檔案也收錄在 `程式碼/Day29/compliance_checklist.py`。它的產出就是下一節的實跑結果。
+以上各段依序合併，就是可直接執行的完整程式；同一份檔案也收錄在 [`程式碼/Day29/compliance_checklist.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day29/compliance_checklist.py)。它的產出就是下一節的實跑結果。
 
 ## 實跑：一份自評報告
 
@@ -243,5 +243,5 @@ if __name__ == "__main__":
 **明天（Day 30）是這趟旅程的最後一站——總結：白皮書合成與後續追蹤。** 我們會把三十天的內容做一次總收束，說明這份檢核表與白皮書可以怎麼再利用到真實的醫院案與政府標案，並談談 AI 治理「邊做邊更新」的下一步。從 Day 1 的一條法規縫隙，到今天這份可執行的檢核表，這條「從法條到程式碼」的路，明天就要走到終點。
 
 ---
-- 程式碼：`程式碼/Day29/compliance_checklist.py`（機器可讀檢核表與自評工具）。程式將本系列檢核表寫成結構化資料，並對本系列 RAG 醫院客服 demo 做自評、計算準備度與缺口；結果為真實執行輸出。自評狀態（C10 標為部分）為對本 demo 的誠實評估，非虛構。
+- 程式碼：[`程式碼/Day29/compliance_checklist.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day29/compliance_checklist.py)（機器可讀檢核表與自評工具）。程式將本系列檢核表寫成結構化資料，並對本系列 RAG 醫院客服 demo 做自評、計算準備度與缺口；結果為真實執行輸出。自評狀態（C10 標為部分）為對本 demo 的誠實評估，非虛構。
 - 參考條文／出處：AIEC 十大評測項目（安全性、可解釋性、彈性、公平性、準確性、透明性、當責性、可靠性、隱私、資安）為 AIEC 公開資訊，見 Day 18；《人工智慧基本法》第 4 條七大原則（全國法規資料庫），見 Day 8；ISO/IEC 42001 附錄 A 各相關控制以目的轉述、未引原文，見 Day 12；十項與七原則、42001 控制之對映關係為本系列原創整理。

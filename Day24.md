@@ -30,7 +30,7 @@
 
 ## 動手：輸出層的三道防禦
 
-三道防禦，都是可以搬到任何大型語言模型（Large Language Model，以下簡稱 LLM）應用的樣板（完整檔在 `程式碼/Day24/output_guard_rag.py`；RAG 的載入、切塊、向量化、檢索沿用 Day 21，此處只呈現輸出層新增的部分）。我們保留一個「未設防」版本（直接把模型輸出丟回去，重現 Day 21 的做法）與「已設防」版本並排對照。
+三道防禦，都是可以搬到任何大型語言模型（Large Language Model，以下簡稱 LLM）應用的樣板（完整檔在 [`程式碼/Day24/output_guard_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day24/output_guard_rag.py)；RAG 的載入、切塊、向量化、檢索沿用 Day 21，此處只呈現輸出層新增的部分）。我們保留一個「未設防」版本（直接把模型輸出丟回去，重現 Day 21 的做法）與「已設防」版本並排對照。
 
 ### 防禦一：出口敏感內容過濾——資料層的兜底
 
@@ -141,7 +141,7 @@ if __name__ == "__main__":
          "家醫科的聯絡窗口是誰？電話幾號？", chunks, matrix)
 ```
 
-其中 `demo()` 是負責檢索、分別呼叫 `answer_naive` 與 `answer_guarded`、並排印出對照的輔助函式（完整程式在 `output_guard_rag.py`）。已設防管線的三道關卡與它們的先後順序如下圖所示，三個情境的實際輸出則接在其後。
+其中 `demo()` 是負責檢索、分別呼叫 `answer_naive` 與 `answer_guarded`、並排印出對照的輔助函式（完整程式在 [`程式碼/Day24/output_guard_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day24/output_guard_rag.py)）。已設防管線的三道關卡與它們的先後順序如下圖所示，三個情境的實際輸出則接在其後。
 
 ![已設防管線的三道關卡與其順序](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day24/Day24-05-pipeline-order.png)
 
@@ -215,5 +215,5 @@ if __name__ == "__main__":
 **明天（Day 25）進入第四層——存取控制與最小權限。** 前三層都在處理「內容」——資料乾不乾淨、輸入安不安全、輸出該不該送。但還有一個更根本的問題：**這個使用者，到底有沒有資格看到這筆資料？** 我們會替客服補上身分與權限的把關，處理「最小權限」與「租戶隔離」——這是把「該保護的資料，連碰都碰不到」做到底的一層。
 
 ---
-- 程式碼：`程式碼/Day24/output_guard_rag.py`（輸出層防禦 RAG）與 `程式碼/Day24/knowledge/`（知識庫）。其中 `internal_note.md` 為 LLM 生成之虛構備註，「刻意」殘留一筆未治理的假個資（假姓名、格式正確但杜撰的假電話），以示範輸出層對「資料層失守」的兜底遮蔽，檔頭已明確標註，正式系統知識庫不應含此類內容；其餘假資料沿用 Day 21／23。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因大型語言模型具非確定性，重現時回覆文字可能與本文節錄略有不同。（說明：本系列各日的虛構假資料為各自獨立生成，人物設定不跨日延續，請勿跨篇對照。）
+- 程式碼：[`程式碼/Day24/output_guard_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day24/output_guard_rag.py)（輸出層防禦 RAG）與 [`程式碼/Day24/knowledge/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day24/knowledge)（知識庫）。其中 [`internal_note.md`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day24/knowledge/internal_note.md) 為 LLM 生成之虛構備註，「刻意」殘留一筆未治理的假個資（假姓名、格式正確但杜撰的假電話），以示範輸出層對「資料層失守」的兜底遮蔽，檔頭已明確標註，正式系統知識庫不應含此類內容；其餘假資料沿用 Day 21／23。實作用本機 Ollama（`qwen3:8b` 生成、`embeddinggemma` 向量化），結果為真實執行輸出；因大型語言模型具非確定性，重現時回覆文字可能與本文節錄略有不同。（說明：本系列各日的虛構假資料為各自獨立生成，人物設定不跨日延續，請勿跨篇對照。）
 - 參考條文／出處：《人工智慧基本法》第 4 條「透明與可解釋」「隱私保護與資料治理」原則（全國法規資料庫）；ISO/IEC 42001 附錄 A 相關控制以目的轉述、未引原文；幻覺（Hallucination）、grounding、過度依賴（Overreliance）為通用技術概念，其中過度依賴相關議題於 OWASP Top 10 for LLM Applications 2025 併入 LLM09「錯誤資訊（Misinformation）」項，CC BY-SA 4.0；AIEC「透明性」「可解釋性」「準確性」評測項目見 Day 18。
