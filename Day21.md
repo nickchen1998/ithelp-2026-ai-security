@@ -47,14 +47,14 @@ RAG 的解法很直覺，用一個生活化的比喻就懂——**開書考試**
 
 概念講完，來看程式。我們刻意寫一個**最小**版本——不用任何向量資料庫或框架，只用 `numpy` 加本機 Ollama，把五個步驟原原本本地呈現出來，方便理解。完整程式在 [`程式碼/Day21/minimal_rag.py`](https://github.com/nickchen1998/ithelp-2026-ai-security/blob/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day21/minimal_rag.py)；以下依邏輯分段、依序把整支程式呈現出來，順著讀就能理解全貌。
 
-### 知識庫：兩份文件
+## 知識庫：兩份文件
 
 知識庫放在 [`程式碼/Day21/knowledge/`](https://github.com/nickchen1998/ithelp-2026-ai-security/tree/main/%E7%A8%8B%E5%BC%8F%E7%A2%BC/Day21/knowledge)，有兩份文件：
 
 - `hospital_faq.md`：虛構的「仁心醫院」常見問答。**這是本系列自製的假資料**——醫院名稱、時間、流程全為杜撰，檔頭都標註了「由 LLM 生成、非真實來源、僅供 Demo」，絕不含任何真實個資。
 - `ai_basic_law.md`：《人工智慧基本法》節選條文（真實法律，依《著作權法》第 9 條可自由引用）。
 
-### 準備：匯入與常數
+## 準備：匯入與常數
 
 整支程式只依賴 `numpy` 與官方 `ollama` 套件。開頭先把要用的模型與參數集中設好：
 
@@ -72,7 +72,7 @@ TOP_K = 3                        # 每次檢索取回最相近的段落數
 KNOWLEDGE_DIR = os.path.join(os.path.dirname(__file__), "knowledge")
 ```
 
-### 步驟 1＋2：載入與切塊
+## 步驟 1＋2：載入與切塊
 
 ```python
 def load_and_chunk(knowledge_dir: str) -> list[dict]:
@@ -95,7 +95,7 @@ def load_and_chunk(knowledge_dir: str) -> list[dict]:
 
 這裡用最直覺的切法——依 Markdown 的 `##` 小標題分段。真實系統會用更講究的切塊策略（依語意、固定長度加重疊等），但「把長文切小段」的原理是一樣的。
 
-### 步驟 3：向量化
+## 步驟 3：向量化
 
 ```python
 def embed(texts: list[str]) -> np.ndarray:
@@ -109,7 +109,7 @@ def embed(texts: list[str]) -> np.ndarray:
 
 用 `embeddinggemma` 這個嵌入模型，把文字變成 768 維的向量。正規化成單位向量後，之後算「內積」就等於算「餘弦相似度」——這是衡量兩段文字有多相近的常用指標。
 
-### 步驟 4：檢索
+## 步驟 4：檢索
 
 ```python
 def retrieve(question: str, chunks: list[dict], matrix: np.ndarray, top_k: int):
@@ -122,7 +122,7 @@ def retrieve(question: str, chunks: list[dict], matrix: np.ndarray, top_k: int):
 
 把問題轉成向量，跟知識庫所有段落的向量做一次矩陣相乘，就得到每一段的相似度分數，取最高的幾段（本例取 3 段）。
 
-### 步驟 5：生成
+## 步驟 5：生成
 
 生成的關鍵，在那段**系統提示**——它命令模型「只依據參考資料回答、找不到就誠實說不知道」：
 
@@ -156,7 +156,7 @@ def generate(question: str, contexts: list[dict]) -> str:
 
 這句「只依據參考資料、找不到別編」看似簡單，卻是 RAG 抑制幻覺的核心，也是後面很多防禦的起點。`generate()` 則把檢索到的每一段包成「【參考資料 N｜來源：檔名】」的格式再交給模型——順帶把來源檔名也一起帶上，這正是 Day 24「來源標註」可追溯性的伏筆。
 
-### 串起來：主程式
+## 串起來：主程式
 
 最後用一個 `answer()` 把「檢索 → 生成」串起來、印出過程，主程式則先建好索引，再對幾個問題各跑一次：
 
