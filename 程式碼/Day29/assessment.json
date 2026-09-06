@@ -1,0 +1,17 @@
+{
+  "project": "本系列 RAG 醫院客服 demo",
+  "date": "2026-09",
+  "note": "誠實版：C10 公平性只做了資料源頭治理，尚未做正式的分群偏誤量測，故填 partial。",
+  "status": {
+    "C1": "done",
+    "C2": "done",
+    "C3": "done",
+    "C4": "done",
+    "C5": "done",
+    "C6": "done",
+    "C7": "done",
+    "C8": "done",
+    "C9": "done",
+    "C10": "partial"
+  }
+}

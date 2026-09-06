@@ -1,0 +1,17 @@
+{
+  "project": "本系列 RAG 醫院客服 demo（樂觀版）",
+  "date": "2026-09",
+  "note": "示範用：把 C10 公平性也勾成 done，看查核工具會不會放行。",
+  "status": {
+    "C1": "done",
+    "C2": "done",
+    "C3": "done",
+    "C4": "done",
+    "C5": "done",
+    "C6": "done",
+    "C7": "done",
+    "C8": "done",
+    "C9": "done",
+    "C10": "done"
+  }
+}

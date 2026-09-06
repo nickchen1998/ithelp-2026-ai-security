@@ -20,7 +20,8 @@ Day 22 範例：資料層——資料治理與外洩防護。
 
 用法：
     pip install ollama numpy
-    python data_governance_demo.py
+    python data_governance_demo.py           # 完整示範（情境 A／B，需要 Ollama）
+    python data_governance_demo.py --probe   # 只測去識別化的破口（不需要 Ollama）
 
 註：因大型語言模型具非確定性，重現時的回覆文字可能與本文所示略有不同。
 """
@@ -28,6 +29,7 @@ Day 22 範例：資料層——資料治理與外洩防護。
 import glob
 import os
 import re
+import sys
 
 import numpy as np
 import ollama
@@ -111,7 +113,7 @@ _LEAK_MARKERS = ["A123456789", "B223456788", "A187654321", "C201234567",
 def run(title: str, doc_text: str, question: str) -> None:
     chunks, mat = build_index(doc_text)
     answer = rag_answer(question, chunks, mat)
-    leaked = [m for m in _LEAK_MARKERS if m in answer]
+    leaked = [m for m in _LEAK_MARKERS if m in answer]      # 命中任一＝洩漏
     verdict = f"🔴 洩漏了個資：{leaked}" if leaked else "🟢 未洩漏個資"
     print("=" * 72)
     print(f"【{title}】 → {verdict}")
@@ -119,7 +121,30 @@ def run(title: str, doc_text: str, question: str) -> None:
     print(f"回覆：{answer}\n")
 
 
+# ── 去識別化的破口：樣式比對只擋得住它想像得到的格式 ─────────────────
+# 這兩個字串刻意設計來繞過 _PII_RULES，用來說明「去識別化 ≠ 匿名化」。
+_PROBES = [
+    # 舊式居留證號是「兩個字母＋八碼」、市話不是 09 開頭——兩條規則都認不得
+    # （2021 年起改發的新式統號為一碼字母＋九碼數字，反而會被身分證規則誤中）
+    "聯絡人為陳老師，居留證號 AC12345678，市話 02-2345-6789",
+    # 自由文字裡沒有任何欄位標籤可抓，但準識別符組合起來足以指認一個人
+    "病患為新竹縣尖石鄉某國小的張老師，罹患罕見的高雪氏症。",
+]
+
+
+def probe_limits() -> None:
+    """把刻意設計的字串餵進 deidentify()，看它漏掉什麼。"""
+    print("── 去識別化的破口（原文 vs 遮蔽後）──\n")
+    for text in _PROBES:
+        print(f"原文： {text}")
+        print(f"遮蔽： {deidentify(text)}\n")
+
+
 if __name__ == "__main__":
+    if "--probe" in sys.argv:
+        probe_limits()
+        sys.exit(0)
+
     raw = ""
     for path in sorted(glob.glob(os.path.join(RAW_DIR, "*.md"))):
         text = open(path, encoding="utf-8").read()
