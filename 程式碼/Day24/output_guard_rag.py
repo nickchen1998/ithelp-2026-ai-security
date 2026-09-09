@@ -52,7 +52,7 @@ def load_and_chunk(knowledge_dir: str) -> list[dict]:
         source = os.path.basename(path)
         with open(path, encoding="utf-8") as f:
             text = f.read()
-        text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
+        text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)  # 去掉檔頭標註
         for part in re.split(r"\n##\s+", text):
             part = part.strip()
             if len(part) >= 10:
