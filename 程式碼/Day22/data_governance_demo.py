@@ -141,7 +141,7 @@ def probe_limits() -> None:
 
 
 if __name__ == "__main__":
-    if "--probe" in sys.argv:
+    if "--probe" in sys.argv:          # 只測去識別化的破口，不啟動 Ollama
         probe_limits()
         sys.exit(0)
 
