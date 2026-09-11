@@ -154,7 +154,7 @@
 
 ![AI 採購的三道新紅線：模型來源、資料落地與地端部署](https://raw.githubusercontent.com/nickchen1998/ithelp-2026-ai-security/main/%E5%9C%96%E6%AA%94/Day20/Day20-06-ai-procurement-redlines.png)
 
-再往前看一步：這類「AI 供應來源可不可信」的問題，正是 Day 28 供應鏈治理要處理的技術面。**今天在採購文件上被問的問題，Day 28 會給出可執行的答案**——用 **AI 物料清單（AI Bill of Materials，以下簡稱 AI-BOM）**盤點你用了誰的模型與套件，並用完整性驗證證明它沒有被掉包。
+再往前看一步：這類「AI 供應來源可不可信」的問題，正是 Day 28 供應鏈治理要處理的技術面。**今天在採購文件上被問的問題，Day 28 會給出可執行的答案**——用 **AI 物料清單**（AI Bill of Materials，以下簡稱 AI-BOM）盤點你用了誰的模型與套件，並用完整性驗證證明它沒有被掉包。
 
 # 得標之後才是開始：履約與驗收
 
