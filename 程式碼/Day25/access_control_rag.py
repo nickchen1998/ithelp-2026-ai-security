@@ -67,13 +67,6 @@ def load_and_chunk(knowledge_dir: str) -> list[dict]:
     return chunks
 
 
-def embed(texts: list[str]) -> np.ndarray:
-    resp = ollama.embed(model=EMBED_MODEL, input=texts)
-    vecs = np.array(resp["embeddings"], dtype=np.float32)
-    vecs /= np.linalg.norm(vecs, axis=1, keepdims=True) + 1e-10
-    return vecs
-
-
 # ══════════════════════════════════════════════════════════════════════
 #  存取控制：最小權限規則（可複用樣板）
 # ══════════════════════════════════════════════════════════════════════
@@ -99,6 +92,13 @@ def can_access(user: dict, access: str) -> bool:
 # ══════════════════════════════════════════════════════════════════════
 #  檢索：未設防（全庫檢索）vs 已設防（先過濾權限，再檢索）
 # ══════════════════════════════════════════════════════════════════════
+def embed(texts: list[str]) -> np.ndarray:
+    resp = ollama.embed(model=EMBED_MODEL, input=texts)
+    vecs = np.array(resp["embeddings"], dtype=np.float32)
+    vecs /= np.linalg.norm(vecs, axis=1, keepdims=True) + 1e-10
+    return vecs
+
+
 def retrieve_naive(question, chunks, matrix, top_k):
     """未設防：對「整個知識庫」做相似度檢索，不管使用者是誰。"""
     q_vec = embed([question])[0]
